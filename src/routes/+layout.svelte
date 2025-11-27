@@ -11,12 +11,13 @@
 	let snackbarMessage = $state('');
 	let showSnackbar = $state(false);
 
-	const showSnackbarMessage = (message: string) => {
+	const showSnackbarMessage = (message: string, duration = 1500) => {
 		snackbarMessage = message;
+		snackbarDuration = duration;
 		showSnackbar = true;
 		setTimeout(() => {
 			showSnackbar = false;
-		}, 3000);
+		}, duration + 300); // フェードアウトアニメーション時間を追加
 	};
 
 	onMount(() => {
@@ -100,5 +101,5 @@
 {@render children()}
 
 {#if showSnackbar}
-	<Snackbar message={snackbarMessage} />
+	<Snackbar message={snackbarMessage} duration={snackbarDuration} />
 {/if}
