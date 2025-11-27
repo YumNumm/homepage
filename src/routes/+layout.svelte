@@ -83,6 +83,10 @@
 
 			// クリーンアップ
 			return () => {
+				copyButtons.forEach((button) => {
+					button.removeEventListener('click', handleCopyClick);
+				});
+				copyObserver.disconnect();
 				headings.forEach((heading) => {
 					heading.removeEventListener('click', handleHeadingClick);
 				});
