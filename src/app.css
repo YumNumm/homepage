@@ -35,7 +35,7 @@
 }
 
 :root[data-theme='dark'] {
-	--color-accent: #2a37f4;
+	--color-accent: #333dc7;
 	--color-accent-dark: #000ecc;
 	--color-gray: #8b8d98;
 	--color-gray-dark: #34384b;
