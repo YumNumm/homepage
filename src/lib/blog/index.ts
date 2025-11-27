@@ -12,6 +12,7 @@ const allBlogModules = import.meta.glob<{ default: string }>(
   "../content/blog/*.md",
   {
     eager: true,
+    query: "?raw",
   }
 );
 

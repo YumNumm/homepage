@@ -6,8 +6,9 @@
 
 <h1 style="margin-bottom: 2rem; color: var(--color-text);">Blog</h1>
 
-<ul style="list-style: none; padding: 0;">
-	{#each data.posts as post}
+{#if data.posts && data.posts.length > 0}
+	<ul style="list-style: none; padding: 0;">
+		{#each data.posts as post}
 		<li
 			style="
 				margin-bottom: 1.5rem;
@@ -72,5 +73,8 @@
 				{/if}
 			</div>
 		</li>
-	{/each}
-</ul>
+		{/each}
+	</ul>
+{:else}
+	<p style="color: var(--color-text-muted);">ブログ投稿がありません。</p>
+{/if}
