@@ -24,8 +24,8 @@
 		bottom: {fading ? '-100px' : '2rem'};
 		left: 50%;
 		transform: translateX(-50%);
-		background: var(--md-sys-color-surface-container-high);
-		color: var(--md-sys-color-on-surface);
+		background: var(--color-surface);
+		color: var(--color-text);
 		padding: 1rem 1.5rem;
 		border-radius: 8px;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);

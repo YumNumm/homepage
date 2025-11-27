@@ -20,20 +20,22 @@
 	onclick={toggleTheme}
 	aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
 	style="
-		background: var(--md-sys-color-surface-container-high);
-		border: 1px solid var(--md-sys-color-outline);
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
 		border-radius: 8px;
 		padding: 8px 16px;
 		cursor: pointer;
-		color: var(--md-sys-color-on-surface);
+		color: var(--color-text);
 		font-family: inherit;
 		transition: all 0.2s ease;
 	"
 	onmouseenter={(e) => {
-		e.currentTarget.style.background = 'var(--md-sys-color-surface-container-highest)';
+		e.currentTarget.style.background = 'var(--color-surface-hover)';
+		e.currentTarget.style.borderColor = 'var(--color-accent)';
 	}}
 	onmouseleave={(e) => {
-		e.currentTarget.style.background = 'var(--md-sys-color-surface-container-high)';
+		e.currentTarget.style.background = 'var(--color-surface)';
+		e.currentTarget.style.borderColor = 'var(--color-border)';
 	}}
 >
 	{theme === 'light' ? '🌙' : '☀️'}

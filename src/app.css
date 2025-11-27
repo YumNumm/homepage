@@ -206,7 +206,7 @@ h6::before {
 	top: -0.2em;
 	font-size: 0.75em;
 	font-weight: 100;
-	color: var(--md-sys-color-on-surface-variant);
+	color: var(--color-text-muted);
 	opacity: 0.6;
 	line-height: inherit;
 	font-variant-ligatures: common-ligatures;
