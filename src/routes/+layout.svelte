@@ -4,7 +4,7 @@
 	import { themeStore } from '$lib/stores/theme';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
-	import { pushState } from '$app/navigation';
+	import { replaceState } from '$app/navigation';
 	import Snackbar from '$lib/components/Snackbar.svelte';
 
 	let { children } = $props();
@@ -45,8 +45,8 @@
 						// 見出しにスクロール
 						target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 						// URLを更新（ハッシュを追加）
-						pushState(url, {});
-						// Snackbarを表示
+						replaceState(url, {});
+						// Snackbarを
 						showSnackbarMessage('URLをコピーしました');
 					})
 					.catch((err) => {
