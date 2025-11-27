@@ -27,6 +27,69 @@
 		themeStore.init();
 
 		if (browser) {
+			// コードブロックのコピーボタンのイベントをハンドル
+			const handleCopyClick = async (event: MouseEvent) => {
+				const button = event.currentTarget as HTMLButtonElement;
+				if (!button) return;
+
+				const codeId = button.getAttribute('data-code-id');
+				if (!codeId) return;
+
+				const codeElement = document.getElementById(codeId);
+				if (!codeElement) return;
+
+				// コードテキストを取得（pre要素内のcode要素をテキストとして取得）
+				const codeText = codeElement.querySelector('code')?.textContent || codeElement.textContent || '';
+
+				try {
+					await navigator.clipboard.writeText(codeText);
+					// 一時的にボタンのアイコンを変更
+					const originalHTML = button.innerHTML;
+					button.innerHTML = `
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+					`;
+					setTimeout(() => {
+						button.innerHTML = originalHTML;
+					}, 2000);
+					showSnackbarMessage('コードをコピーしました');
+				} catch (err) {
+					console.error('Failed to copy code:', err);
+					showSnackbarMessage('コードのコピーに失敗しました');
+				}
+			};
+
+			// すべてのコピーボタンにイベントリスナーを追加
+			const copyButtons = document.querySelectorAll('.code-block-copy');
+			copyButtons.forEach((button) => {
+				button.addEventListener('click', handleCopyClick);
+			});
+
+			// MutationObserverで動的に追加されるコピーボタンにも対応
+			const copyObserver = new MutationObserver((mutations) => {
+				mutations.forEach((mutation) => {
+					mutation.addedNodes.forEach((node) => {
+						if (node.nodeType === Node.ELEMENT_NODE) {
+							const element = node as HTMLElement;
+							if (element.matches('.code-block-copy')) {
+								element.addEventListener('click', handleCopyClick);
+							}
+							// 子要素の中にもコピーボタンがある場合
+							const childButtons = element.querySelectorAll('.code-block-copy');
+							childButtons.forEach((button) => {
+								button.addEventListener('click', handleCopyClick);
+							});
+						}
+					});
+				});
+			});
+
+			copyObserver.observe(document.body, {
+				childList: true,
+				subtree: true
+			});
+
 			// 見出しのクリックイベントをハンドル
 			const handleHeadingClick = async (event: Event) => {
 				const target = event.currentTarget as HTMLElement;
