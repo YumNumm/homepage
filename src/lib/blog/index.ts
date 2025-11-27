@@ -8,7 +8,7 @@ export interface BlogPost {
 	content: string;
 }
 
-const allBlogModules = import.meta.glob<{ default: string }>('../../../../content/*/blog/*.md', {
+const allBlogModules = import.meta.glob<{ default: string }>('../content/*/blog/*.md', {
 	eager: true
 });
 
@@ -44,7 +44,7 @@ export async function getBlogPost(
 	slug: string
 ): Promise<BlogPost | null> {
 	const found = Object.entries(allBlogModules).find(([path]) => {
-		return path.includes(`/content/${lang}/blog/${slug}.md`);
+		return path.includes(`content/${lang}/blog/${slug}.md`);
 	});
 
 	if (!found) {

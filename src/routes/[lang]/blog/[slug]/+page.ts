@@ -3,7 +3,7 @@ import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 import type { Component } from 'svelte';
 
-const blogModules = import.meta.glob<{ default: Component }>('../../../../content/*/blog/*.md', {
+const blogModules = import.meta.glob<{ default: Component }>('../../../content/*/blog/*.md', {
 	eager: true
 });
 
@@ -18,7 +18,7 @@ export const load: PageLoad = async ({ params }) => {
 	}
 
 	const found = Object.entries(blogModules).find(([path]) => {
-		return path.includes(`/content/${lang}/blog/${slug}.md`);
+		return path.includes(`content/${lang}/blog/${slug}.md`);
 	});
 
 	if (!found) {
