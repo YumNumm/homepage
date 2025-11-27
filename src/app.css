@@ -186,7 +186,8 @@ h6:hover {
 h1::before {
 	content: '#';
 	position: absolute;
-	left: 0;
+	left: -1.5rem;
+	top: 0;
 	font-weight: 100;
 	color: var(--md-sys-color-on-surface-variant);
 	opacity: 0.6;
@@ -200,7 +201,8 @@ h1 {
 h2::before {
 	content: '##';
 	position: absolute;
-	left: 0;
+	left: -2rem;
+	top: 0;
 	font-weight: 100;
 	color: var(--md-sys-color-on-surface-variant);
 	opacity: 0.6;
@@ -217,7 +219,8 @@ h2 {
 h3::before {
 	content: '###';
 	position: absolute;
-	left: 0;
+	left: -2.5rem;
+	top: 0;
 	font-weight: 100;
 	color: var(--md-sys-color-on-surface-variant);
 	opacity: 0.6;
@@ -231,7 +234,8 @@ h3 {
 h4::before {
 	content: '####';
 	position: absolute;
-	left: 0;
+	left: -3rem;
+	top: 0;
 	font-weight: 100;
 	color: var(--md-sys-color-on-surface-variant);
 	opacity: 0.6;
@@ -245,7 +249,8 @@ h4 {
 h5::before {
 	content: '#####';
 	position: absolute;
-	left: 0;
+	left: -3.5rem;
+	top: 0;
 	font-weight: 100;
 	color: var(--md-sys-color-on-surface-variant);
 	opacity: 0.6;
@@ -259,7 +264,8 @@ h5 {
 h6::before {
 	content: '######';
 	position: absolute;
-	left: 0;
+	left: -4rem;
+	top: 0;
 	font-weight: 100;
 	color: var(--md-sys-color-on-surface-variant);
 	opacity: 0.6;
