@@ -37,4 +37,3 @@ export function extractTitleFromMeta(meta: string | undefined): string | null {
 	const titleMatch = meta.match(/title="([^"]+)"/);
 	return titleMatch ? titleMatch[1] : null;
 }
-

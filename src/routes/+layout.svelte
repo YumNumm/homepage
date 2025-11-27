@@ -1,5 +1,5 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/favicon.jpg';
 	import '../app.css';
 	import { themeStore } from '$lib/stores/theme';
 	import { onMount } from 'svelte';
@@ -169,8 +169,8 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: 1rem 2rem;
-		background: var(--md-sys-color-surface-container-low);
-		border-bottom: 1px solid var(--md-sys-color-outline-variant);
+		background: var(--color-surface);
+		border-bottom: 1px solid var(--color-border);
 	"
 >
 	<nav>

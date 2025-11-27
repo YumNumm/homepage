@@ -7,7 +7,10 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePresetMinify from "rehype-preset-minify";
 import { createHighlighter } from "shiki";
 import { transformerTwoslash, rendererRich } from "@shikijs/twoslash";
-import { createCodeBlockHtml, extractTitleFromMeta } from "./src/lib/utils/code-block.js";
+import {
+  createCodeBlockHtml,
+  extractTitleFromMeta,
+} from "./src/lib/utils/code-block.js";
 
 const highlighter = await createHighlighter({
   themes: ["github-dark-high-contrast"],
@@ -45,11 +48,10 @@ const config = {
               lang,
               theme: "github-dark-high-contrast",
               transformers: [
-                transformerTwoslash({
-                  renderer: rendererRich(),
-                }),
+                transformerTwoslash(),
                 transformerColorizedBrackets(),
               ],
+              decorations: {},
             })
           );
 

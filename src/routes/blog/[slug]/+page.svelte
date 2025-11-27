@@ -5,7 +5,7 @@
 </script>
 
 {#if data.post}
-	<h1 style="margin-bottom: 1rem; color: var(--md-sys-color-on-background);">
+	<h1 style="margin-bottom: 1rem; color: var(--color-text);">
 		{data.post.title}
 	</h1>
 	{#if data.post.date}
@@ -14,7 +14,7 @@
 			style="
 				display: block;
 				margin-bottom: 2rem;
-				color: var(--md-sys-color-on-surface-variant);
+				color: var(--color-text-muted);
 			"
 		>
 			{new Date(data.post.date).toLocaleDateString()}
