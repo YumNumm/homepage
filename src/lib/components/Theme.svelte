@@ -23,4 +23,3 @@
 <div data-radix-theme={theme} style="height: 100%;">
 	{@render children()}
 </div>
-

@@ -26,7 +26,7 @@
 	--color-gray: #8b8d98;
 	--color-gray-dark: #34384b;
 	--color-background-start: #d0d1e7;
-	--color-background-end: #b8b9d0;
+	--color-background-end: #9a9bb8;
 	--color-background-dark: #070019;
 	--color-text: #070019;
 	--color-text-muted: #34384b;
@@ -48,7 +48,7 @@
 	--color-gray: #8b8d98;
 	--color-gray-dark: #34384b;
 	--color-background-start: #070019;
-	--color-background-end: #0a001f;
+	--color-background-end: #0f0028;
 	--color-background-dark: #070019;
 	--color-text: #d0d1e7;
 	--color-text-muted: #8b8d98;
@@ -68,7 +68,7 @@ body {
 	font-variant-ligatures: common-ligatures;
 	line-height: 1.6;
 	color: var(--color-text);
-	background: linear-gradient(to bottom, var(--color-background-start), var(--color-background-end));
+	background: linear-gradient(to bottom, var(--color-background-start) 0%, var(--color-background-end) 100%);
 	background-attachment: fixed;
 	min-height: 100vh;
 	transition: background 0.3s ease, color 0.3s ease;
