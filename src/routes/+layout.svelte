@@ -190,7 +190,7 @@
 		</div>
 	</header>
 
-	<main style="padding: 2rem; padding-top: calc(2rem + 64px); max-width: 1200px; margin: 0 auto; min-height: calc(100vh - 64px);">
+	<main style="position: fixed; top: 64px; left: 0; right: 0; bottom: 0; padding: 2rem; max-width: 1200px; margin: 0 auto; overflow-y: auto; box-sizing: border-box;">
 		{@render children()}
 	</main>
 

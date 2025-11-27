@@ -39,18 +39,38 @@
 			>
 				{post.title}
 			</a>
-			{#if post.date}
-				<time
-					datetime={post.date}
-					style="
-						display: block;
-						font-size: 0.875rem;
-						color: var(--color-text-muted);
-					"
-				>
-					{new Date(post.date).toLocaleDateString()}
-				</time>
-			{/if}
+			<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+				{#if post.date}
+					<time
+						datetime={post.date}
+						style="
+							font-size: 0.875rem;
+							color: var(--color-text-muted);
+						"
+					>
+						{new Date(post.date).toLocaleDateString()}
+					</time>
+				{/if}
+				{#if post.tags && post.tags.length > 0}
+					<span style="font-size: 0.875rem; color: var(--color-text-muted); margin: 0 0.5rem;">•</span>
+					<div style="display: flex; flex-wrap: wrap; gap: 0.25rem;">
+						{#each post.tags as tag}
+							<span
+								style="
+									font-size: 0.75rem;
+									padding: 0.25rem 0.5rem;
+									background: var(--color-surface-hover);
+									border: 1px solid var(--color-border);
+									border-radius: 4px;
+									color: var(--color-text-muted);
+								"
+							>
+								{tag}
+							</span>
+						{/each}
+					</div>
+				{/if}
+			</div>
 		</li>
 	{/each}
 </ul>

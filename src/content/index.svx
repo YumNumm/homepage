@@ -1,21 +1,3 @@
 ## Ryotaro Onoue
 
 尾上 遼太朗 (おのうえ りょうたろう - Ryotaro Onoue, aka. もぐもぐ)
-
-
-```typescript title="example.ts"
-const value = null;
-```
-
-```dart title="example.dart" {3}
-class Example {
-  Example({required this.value});
-
-  final String value;
-}
-
-void main() {
-  final example = Example(value: 'example');
-  print(example.value);
-}
-```
