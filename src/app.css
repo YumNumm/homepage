@@ -25,8 +25,8 @@
 	--color-accent-dark: #000ecc;
 	--color-gray: #8b8d98;
 	--color-gray-dark: #34384b;
-	--color-background-start: #d0d1e7;
-	--color-background-end: #9a9bb8;
+	--color-background-start: #e0e1f0;
+	--color-background-end: #7a7ba0;
 	--color-background-dark: #070019;
 	--color-text: #070019;
 	--color-text-muted: #34384b;
@@ -47,8 +47,8 @@
 	--color-accent-dark: #000ecc;
 	--color-gray: #8b8d98;
 	--color-gray-dark: #34384b;
-	--color-background-start: #070019;
-	--color-background-end: #0f0028;
+	--color-background-start: #050010;
+	--color-background-end: #1a0033;
 	--color-background-dark: #070019;
 	--color-text: #d0d1e7;
 	--color-text-muted: #8b8d98;
@@ -63,15 +63,23 @@
 	--gray-10: #34384b;
 }
 
+html,
 body {
 	font-family: 'JetBrains Mono', 'Noto Sans JP', monospace;
 	font-variant-ligatures: common-ligatures;
 	line-height: 1.6;
 	color: var(--color-text);
-	background: linear-gradient(to bottom, var(--color-background-start) 0%, var(--color-background-end) 100%);
-	background-attachment: fixed;
 	min-height: 100vh;
 	transition: background 0.3s ease, color 0.3s ease;
+}
+
+html {
+	background: linear-gradient(to bottom, var(--color-background-start) 0%, var(--color-background-end) 100%);
+	background-attachment: fixed;
+}
+
+body {
+	background: transparent;
 }
 
 a {
