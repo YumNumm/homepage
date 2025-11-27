@@ -2,7 +2,7 @@ import type { PageLoad } from './$types';
 import type { Component } from 'svelte';
 
 // import.meta.globはsrcディレクトリからの相対パスを使用
-const contentModules = import.meta.glob<{ default: Component }>('../../content/*/index.md', {
+const contentModules = import.meta.glob<{ default: Component }>('../../content/*/index.{md,svx}', {
 	eager: true
 });
 
@@ -11,8 +11,13 @@ export const load: PageLoad = async ({ params }) => {
 
 	// import.meta.globで取得されるパスを検索
 	const found = Object.entries(contentModules).find(([path]) => {
-		// パスに言語コードとindex.mdが含まれているか確認
-		return path.includes(`content/${lang}/index.md`) || path.includes(`content\\${lang}\\index.md`);
+		// パスに言語コードとindex.mdまたはindex.svxが含まれているか確認
+		return (
+			path.includes(`content/${lang}/index.md`) ||
+			path.includes(`content/${lang}/index.svx`) ||
+			path.includes(`content\\${lang}\\index.md`) ||
+			path.includes(`content\\${lang}\\index.svx`)
+		);
 	});
 
 	if (!found) {
