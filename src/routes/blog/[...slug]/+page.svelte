@@ -1,24 +1,10 @@
 <script lang="ts">
-  import { page } from "$app/state";
-  import { app, type App } from "../../api/[...paths]/app";
-  import { hc } from "hono/client";
+	import type { PageData } from './$types';
 
-  async function getPost(slug: string) {
-    const client = hc<App>("/");
-    const response = await client.api.post.$get({ param: { slug } });
-    return response.json();
-  }
-
-  const slug = $page.url.pathname.split("/").at(-1);
-  if (!slug) {
-    throw redirect(302, "/blog");
-  }
-  const postPromise = getPost(slug);
+	let { data }: { data: PageData } = $props();
 </script>
 
-{#await postPromise}
-  <p>Loading...</p>
-{:then post}
+{#if data.post}
 	<h1 style="margin-bottom: 1rem; color: var(--color-text);">
 		{data.post.title}
 	</h1>
@@ -54,4 +40,8 @@
 			</div>
 		{/if}
 	</div>
-{/await}
+{/if}
+
+{#if data.Content}
+	<data.Content />
+{/if}
