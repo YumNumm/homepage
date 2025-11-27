@@ -1,6 +1,13 @@
-import type { RequestHandler } from "@sveltejs/kit";
-import { app } from "./app";
+import { app, type HonoBindings } from "$lib/api/app";
 
-export const GET: RequestHandler = ({ request }) => app.fetch(request);
-export const POST: RequestHandler = ({ request }) => app.fetch(request);
-export const DELETE: RequestHandler = ({ request }) => app.fetch(request);
+export const GET = async ({ request, platform }) => {
+  const Env = {
+    ...platform?.env,
+    ...(platform?.caches ? { caches: platform.caches } : {}),
+  } as const satisfies HonoBindings;
+
+  return await app.fetch(request, Env);
+};
+
+export const POST = GET;
+export const PUT = GET;

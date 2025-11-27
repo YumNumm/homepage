@@ -6,35 +6,33 @@ import { logger } from "hono/logger";
 import { secureHeaders } from "hono/secure-headers";
 import { vValidator } from "@hono/valibot-validator";
 import { cache } from "hono/cache";
+import { hc } from "hono/client";
 
 async function getPosts(): Promise<Post[]> {
-  const posts: Post[] = [];
-
   const paths = import.meta.glob("/src/content/blog/**/*", { eager: true });
-  console.log(paths);
-
+  const posts = [];
   for (const path in paths) {
     const file = paths[path];
     const slug = path
       .split("/")
       .at(-1)
       ?.replace(/\.(md|svx)$/, "");
-
     if (file && typeof file === "object" && "metadata" in file && slug) {
       const metadata = file.metadata as Omit<Post, "slug">;
       const post = v.parse(PostSchema, { ...metadata, slug });
       post.published && posts.push(post);
     }
   }
-
-  posts.sort(
-    (first, second) =>
-      new Date(second.date).getTime() - new Date(first.date).getTime()
-  );
   return posts;
 }
 
-const router = new Hono()
+export type HonoBindings = Partial<
+  App.Platform["env"] & { caches: App.Platform["caches"] }
+>;
+
+const router = new Hono<{
+  Bindings: HonoBindings;
+}>()
   .use(logger())
   .use(secureHeaders())
   .use(
@@ -68,10 +66,15 @@ const router = new Hono()
       if (!post) {
         return c.json({ error: "Post not found" }, 404);
       }
-      return c.json(post);
+      const content = await import(`../../../content/blog/${slug}.svx`);
+      return c.json({ ...post, Content: content.default });
     }
   );
 
 export const app = new Hono().route("/api", router);
 
 export type App = typeof app;
+
+export type Client = ReturnType<typeof hc<typeof app>>;
+export const hcWithType = (...args: Parameters<typeof hc>): Client =>
+  hc<typeof app>(...args);
