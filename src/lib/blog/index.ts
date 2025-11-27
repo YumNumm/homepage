@@ -51,6 +51,11 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
 
   const [, contentString] = found;
 
+  if (typeof contentString !== "string") {
+    console.error(`Expected string for blog post ${slug}, got:`, typeof contentString);
+    return null;
+  }
+
   const { data, content } = matter(contentString);
 
   return {
