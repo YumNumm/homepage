@@ -9,6 +9,7 @@
 	let { children } = $props();
 
 	let snackbarMessage = $state('');
+	let snackbarDuration = $state(1500);
 	let showSnackbar = $state(false);
 
 	const showSnackbarMessage = (message: string, duration = 1500) => {
