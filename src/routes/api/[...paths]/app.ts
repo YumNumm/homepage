@@ -68,22 +68,4 @@ const router = new Hono()
 
 export const app = new Hono().route("/api", router);
 
-type Router = typeof router;
-let browserClient: ReturnType<typeof hc<Router>>;
-
-export const makeClient = (fetch: Window["fetch"]) => {
-  const isBrowser = typeof window !== "undefined";
-  const origin = isBrowser ? window.location.origin : "";
-
-  if (isBrowser && browserClient) {
-    return browserClient;
-  }
-
-  const client = hc<Router>(origin + "/api", { fetch });
-
-  if (isBrowser) {
-    browserClient = client;
-  }
-
-  return client;
-};
+export type App = typeof app;
