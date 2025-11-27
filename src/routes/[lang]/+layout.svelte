@@ -18,8 +18,8 @@
 	"
 >
 	<nav>
-		<a href={`/${lang}`} style="margin-right: 1rem;">Home</a>
-		<a href={`/${lang}/blog`} style="margin-right: 1rem;">Blog</a>
+		<a href={/${lang}} style="margin-right: 1rem;">Home</a>
+		<a href={/${lang}/blog} style="margin-right: 1rem;">Blog</a>
 	</nav>
 	<div style="display: flex; gap: 1rem; align-items: center;">
 		<LanguageSwitcher currentLang={lang} />

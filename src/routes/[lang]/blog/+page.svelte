@@ -27,7 +27,7 @@
 			}}
 		>
 			<a
-				href="/{data.lang}/blog/{post.slug}"
+				href={`/${data.lang}/blog/${post.slug}`}
 				style="
 					display: block;
 					font-size: 1.25rem;
