@@ -19,7 +19,7 @@ export function getDefaultLanguage(headers?: Headers): SupportedLanguage {
 			const languages = acceptLanguage
 				.split(',')
 				.map((lang) => lang.split(';')[0].trim().toLowerCase());
-			
+
 			for (const lang of languages) {
 				if (lang.startsWith('ja')) {
 					return 'jp';
@@ -35,4 +35,3 @@ export function getDefaultLanguage(headers?: Headers): SupportedLanguage {
 	}
 	return 'en';
 }
-

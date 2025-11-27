@@ -17,4 +17,3 @@ export const load: LayoutLoad = async ({ url, request }) => {
 		throw redirect(307, `/${defaultLang}`);
 	}
 };
-
