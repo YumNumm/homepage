@@ -8,4 +8,3 @@ export const load: PageLoad = async () => {
 		posts
 	};
 };
-

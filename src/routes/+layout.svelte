@@ -28,7 +28,7 @@
 
 		if (browser) {
 			// 見出しのクリックイベントをハンドル
-			const handleHeadingClick = (event: MouseEvent) => {
+			const handleHeadingClick = async (event: Event) => {
 				const target = event.currentTarget as HTMLElement;
 				if (!target) return;
 
@@ -40,20 +40,15 @@
 				const urlString = url.toString();
 
 				// URLをコピー
-				navigator.clipboard
+				await navigator.clipboard
 					.writeText(urlString)
-					.then(() => {
 						// 見出しにスクロール
 						target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 						// URLを更新（ハッシュを追加）
 						replaceState(url, {});
 						// Snackbarを表示
 						showSnackbarMessage('URLをコピーしました');
-					})
-					.catch((err) => {
-						console.error('Failed to copy URL:', err);
-						showSnackbarMessage('URLのコピーに失敗しました');
-					});
+
 			};
 
 			// すべての見出しにイベントリスナーを追加
