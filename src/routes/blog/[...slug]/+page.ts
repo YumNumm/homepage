@@ -15,7 +15,7 @@ export const load: PageLoad = async ({ params, fetch }) => {
 	}
 
 	const client = makeClient(fetch);
-	const response = await client.post[`:${slug}`].$get({ param: { slug } });
+	const response = await client.api.post[`:${slug}`].$get({ param: { slug } });
 	
 	if (!response.ok) {
 		throw error(404, 'Post not found');
