@@ -164,6 +164,17 @@ h6 {
 	margin-bottom: 1rem;
 	position: relative;
 	padding-left: 2rem;
+	cursor: pointer;
+	transition: opacity 0.2s ease;
+}
+
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover,
+h6:hover {
+	opacity: 0.8;
 }
 
 .heading-anchor {
