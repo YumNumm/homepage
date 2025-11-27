@@ -140,6 +140,16 @@ h6 {
 	position: relative;
 }
 
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+	color: inherit;
+	text-decoration: none;
+}
+
 .heading-anchor {
 	color: var(--md-sys-color-primary);
 	text-decoration: none;
