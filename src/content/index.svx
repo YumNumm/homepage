@@ -1,3 +1,8 @@
 ## Ryotaro Onoue
 
-尾上
+尾上 遼太朗 (おのうえ りょうたろう - Ryotaro Onoue, aka. もぐもぐ)
+
+
+```dart
+final hoge = null;
+```

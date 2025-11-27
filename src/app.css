@@ -1,5 +1,6 @@
 :root {
 	font-family: 'JetBrains Mono', 'Noto Sans JP', monospace;
+	font-variant-ligatures: common-ligatures;
 	--scrollbar-thumb: #333;
 }
 
@@ -122,6 +123,7 @@
 
 body {
 	font-family: 'JetBrains Mono', 'Noto Sans JP', monospace;
+	font-variant-ligatures: common-ligatures;
 	line-height: 1.6;
 	color: var(--md-sys-color-on-background);
 	background-color: var(--md-sys-color-background);
@@ -184,7 +186,7 @@ h6:hover {
 }
 
 h1::before {
-	content: '#';
+	content: '+';
 	position: absolute;
 	left: 0;
 	top: -0.2em;
@@ -193,6 +195,7 @@ h1::before {
 	color: var(--md-sys-color-on-surface-variant);
 	opacity: 0.6;
 	line-height: inherit;
+	font-variant-ligatures: common-ligatures;
 }
 
 h1 {
@@ -201,7 +204,7 @@ h1 {
 }
 
 h2::before {
-	content: '##';
+	content: '++';
 	position: absolute;
 	left: 0;
 	top: -0.2em;
@@ -210,6 +213,7 @@ h2::before {
 	color: var(--md-sys-color-on-surface-variant);
 	opacity: 0.6;
 	line-height: inherit;
+	font-variant-ligatures: common-ligatures;
 }
 
 h2 {
@@ -221,7 +225,7 @@ h2 {
 }
 
 h3::before {
-	content: '###';
+	content: '+++';
 	position: absolute;
 	left: 0;
 	top: -0.2em;
@@ -230,6 +234,7 @@ h3::before {
 	color: var(--md-sys-color-on-surface-variant);
 	opacity: 0.6;
 	line-height: inherit;
+	font-variant-ligatures: common-ligatures;
 }
 
 h3 {
@@ -238,7 +243,7 @@ h3 {
 }
 
 h4::before {
-	content: '####';
+	content: '++++';
 	position: absolute;
 	left: 0;
 	top: -0.2em;
@@ -247,6 +252,7 @@ h4::before {
 	color: var(--md-sys-color-on-surface-variant);
 	opacity: 0.6;
 	line-height: inherit;
+	font-variant-ligatures: common-ligatures;
 }
 
 h4 {
@@ -255,7 +261,7 @@ h4 {
 }
 
 h5::before {
-	content: '#####';
+	content: '+++++';
 	position: absolute;
 	left: 0;
 	top: -0.2em;
@@ -264,6 +270,7 @@ h5::before {
 	color: var(--md-sys-color-on-surface-variant);
 	opacity: 0.6;
 	line-height: inherit;
+	font-variant-ligatures: common-ligatures;
 }
 
 h5 {
@@ -272,7 +279,7 @@ h5 {
 }
 
 h6::before {
-	content: '######';
+	content: '++++++';
 	position: absolute;
 	left: 0;
 	top: -0.2em;
@@ -281,6 +288,7 @@ h6::before {
 	color: var(--md-sys-color-on-surface-variant);
 	opacity: 0.6;
 	line-height: inherit;
+	font-variant-ligatures: common-ligatures;
 }
 
 h6 {
