@@ -1,11 +1,21 @@
 :root {
 	font-family: 'JetBrains Mono', 'Noto Sans JP', monospace;
+	--scrollbar-thumb: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--scrollbar-thumb: #a3a3a3;
+	}
 }
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	scrollbar-width: thin;
+	scrollbar-gutter: stable;
+	scrollbar-color: var(--scrollbar-thumb) transparent;
 }
 
 :root[data-theme='light'] {
@@ -128,6 +138,21 @@ a:hover {
 	text-decoration: underline;
 }
 
+a:focus-visible,
+button:focus-visible {
+	color: var(--md-sys-color-primary);
+	background-color: var(--md-sys-color-primary-container);
+	outline: none;
+	padding: 0.25rem 0.5rem;
+	border-radius: 4px;
+}
+
+:root[data-theme='dark'] a:focus-visible,
+:root[data-theme='dark'] button:focus-visible {
+	color: var(--md-sys-color-on-primary-container);
+	background-color: var(--md-sys-color-primary-container);
+}
+
 h1,
 h2,
 h3,
@@ -154,6 +179,19 @@ h1 {
 h2 {
 	font-size: 1.5rem;
 	font-weight: 600;
+	position: relative;
+	margin-top: 2rem;
+	margin-bottom: 0.5rem;
+}
+
+h2::after {
+	content: '+';
+	position: absolute;
+	top: -1rem;
+	left: -1rem;
+	font-weight: 100;
+	color: var(--md-sys-color-on-surface-variant);
+	opacity: 0.6;
 }
 
 h3 {
@@ -209,4 +247,19 @@ blockquote {
 	margin-bottom: 1rem;
 	color: var(--md-sys-color-on-surface-variant);
 	font-style: italic;
+}
+
+/* View transitions */
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation: none;
+	mix-blend-mode: normal;
+}
+
+/* Accessibility: Disable strictly for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	::view-transition-old(root),
+	::view-transition-new(root) {
+		animation: auto;
+	}
 }
