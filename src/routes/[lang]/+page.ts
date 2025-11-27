@@ -8,7 +8,7 @@ const contentModules = import.meta.glob<{ default: Component }>('../../content/*
 
 export const load: PageLoad = async ({ params }) => {
 	const lang = params.lang;
-	
+
 	// import.meta.globで取得されるパスを検索
 	const found = Object.entries(contentModules).find(([path]) => {
 		// パスに言語コードとindex.mdが含まれているか確認

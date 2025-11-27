@@ -17,8 +17,8 @@
 	"
 >
 	<nav>
-		<a href="/{lang}" style="margin-right: 1rem;">Home</a>
-		<a href="/{lang}/blog">Blog</a>
+		<a href={/${lang}} style="margin-right: 1rem;">Home</a>
+		<a href={/${lang}/blog} style="margin-right: 1rem;">Blog</a>
 	</nav>
 	<ThemeToggle />
 </header>
