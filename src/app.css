@@ -19,7 +19,8 @@
 	scrollbar-color: var(--scrollbar-thumb) transparent;
 }
 
-:root[data-theme='light'] {
+:root[data-theme='light'],
+[data-radix-theme='light'] {
 	--color-accent: #2a37f4;
 	--color-accent-dark: #000ecc;
 	--color-gray: #8b8d98;
@@ -32,9 +33,16 @@
 	--color-surface: #ffffff;
 	--color-surface-hover: #f5f5f7;
 	--color-border: #e0e0e3;
+	
+	/* Radix UI Themes variables */
+	--accent-9: #2a37f4;
+	--accent-10: #000ecc;
+	--gray-9: #8b8d98;
+	--gray-10: #34384b;
 }
 
-:root[data-theme='dark'] {
+:root[data-theme='dark'],
+[data-radix-theme='dark'] {
 	--color-accent: #333dc7;
 	--color-accent-dark: #000ecc;
 	--color-gray: #8b8d98;
@@ -47,6 +55,12 @@
 	--color-surface: #0f0f1a;
 	--color-surface-hover: #1a1a2a;
 	--color-border: #34384b;
+	
+	/* Radix UI Themes variables */
+	--accent-9: #333dc7;
+	--accent-10: #000ecc;
+	--gray-9: #8b8d98;
+	--gray-10: #34384b;
 }
 
 body {

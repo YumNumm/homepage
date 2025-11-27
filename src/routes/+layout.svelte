@@ -1,5 +1,6 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.jpg';
+	import '@radix-ui/themes/styles.css';
 	import '../app.css';
 	import { themeStore } from '$lib/stores/theme';
 	import { onMount } from 'svelte';
@@ -7,6 +8,7 @@
 	import { replaceState } from '$app/navigation';
 	import Snackbar from '$lib/components/Snackbar.svelte';
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+	import Theme from '$lib/components/Theme.svelte';
 
 	let { children } = $props();
 
@@ -163,29 +165,31 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<header
-	style="
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 1rem 2rem;
-		background: var(--color-surface);
-		border-bottom: 1px solid var(--color-border);
-	"
->
-	<nav>
-		<a href="/" style="margin-right: 1rem;">Home</a>
-		<a href="/blog" style="margin-right: 1rem;">Blog</a>
-	</nav>
-	<div style="display: flex; gap: 1rem; align-items: center;">
-		<ThemeToggle />
-	</div>
-</header>
+<Theme>
+	<header
+		style="
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 1rem 2rem;
+			background: var(--color-surface);
+			border-bottom: 1px solid var(--color-border);
+		"
+	>
+		<nav>
+			<a href="/" style="margin-right: 1rem;">Home</a>
+			<a href="/blog" style="margin-right: 1rem;">Blog</a>
+		</nav>
+		<div style="display: flex; gap: 1rem; align-items: center;">
+			<ThemeToggle />
+		</div>
+	</header>
 
-<main style="padding: 2rem; max-width: 1200px; margin: 0 auto;">
-	{@render children()}
-</main>
+	<main style="padding: 2rem; max-width: 1200px; margin: 0 auto;">
+		{@render children()}
+	</main>
 
-{#if showSnackbar}
-	<Snackbar message={snackbarMessage} duration={snackbarDuration} />
-{/if}
+	{#if showSnackbar}
+		<Snackbar message={snackbarMessage} duration={snackbarDuration} />
+	{/if}
+</Theme>
