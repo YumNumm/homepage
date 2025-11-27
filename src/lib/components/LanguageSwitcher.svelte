@@ -2,6 +2,7 @@
 	import { isValidLanguage, type SupportedLanguage } from '$lib/i18n';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { use } from 'svelte';
 
 	let { currentLang }: { currentLang: SupportedLanguage } = $props();
 
@@ -10,10 +11,12 @@
 		{ code: 'en', label: 'EN' }
 	];
 
+	const pageStore = use(page);
+
 	function switchLanguage(lang: SupportedLanguage) {
 		if (lang === currentLang) return;
 
-		const currentPath = $page.url.pathname;
+		const currentPath = pageStore.url.pathname;
 		const pathWithoutLang = currentPath.replace(/^\/[^/]+/, '');
 		const newPath = `/${lang}${pathWithoutLang === '/' ? '' : pathWithoutLang}`;
 		goto(newPath);
