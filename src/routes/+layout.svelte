@@ -6,6 +6,7 @@
 	import { browser } from '$app/environment';
 	import { replaceState } from '$app/navigation';
 	import Snackbar from '$lib/components/Snackbar.svelte';
+	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 
 	let { children } = $props();
 
@@ -46,7 +47,7 @@
 						target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 						// URLを更新（ハッシュを追加）
 						replaceState(url, {});
-						// Snackbarを
+						// Snackbarを表示
 						showSnackbarMessage('URLをコピーしました');
 					})
 					.catch((err) => {
@@ -100,7 +101,28 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-{@render children()}
+<header
+	style="
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem 2rem;
+		background: var(--md-sys-color-surface-container-low);
+		border-bottom: 1px solid var(--md-sys-color-outline-variant);
+	"
+>
+	<nav>
+		<a href="/" style="margin-right: 1rem;">Home</a>
+		<a href="/blog" style="margin-right: 1rem;">Blog</a>
+	</nav>
+	<div style="display: flex; gap: 1rem; align-items: center;">
+		<ThemeToggle />
+	</div>
+</header>
+
+<main style="padding: 2rem; max-width: 1200px; margin: 0 auto;">
+	{@render children()}
+</main>
 
 {#if showSnackbar}
 	<Snackbar message={snackbarMessage} duration={snackbarDuration} />

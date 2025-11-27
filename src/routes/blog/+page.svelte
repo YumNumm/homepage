@@ -27,7 +27,7 @@
 			}}
 		>
 			<a
-				href={`/${data.lang}/blog/${post.slug}`}
+				href={`/blog/${post.slug}`}
 				style="
 					display: block;
 					font-size: 1.25rem;
@@ -54,3 +54,4 @@
 		</li>
 	{/each}
 </ul>
+

@@ -3,22 +3,21 @@ import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 import type { Component } from 'svelte';
 
-const blogModules = import.meta.glob<{ default: Component }>('../../../content/*/blog/*.md', {
+const blogModules = import.meta.glob<{ default: Component }>('../../../content/jp/blog/*.md', {
 	eager: true
 });
 
 export const load: PageLoad = async ({ params }) => {
-	const lang = params.lang as 'en' | 'jp';
 	const slug = params.slug;
 
-	const post = await getBlogPost(lang, slug);
+	const post = await getBlogPost('jp', slug);
 
 	if (!post) {
 		throw error(404, 'Post not found');
 	}
 
 	const found = Object.entries(blogModules).find(([path]) => {
-		return path.includes(`content/${lang}/blog/${slug}.md`);
+		return path.includes(`content/jp/blog/${slug}.md`);
 	});
 
 	if (!found) {
@@ -28,9 +27,9 @@ export const load: PageLoad = async ({ params }) => {
 	const [, contentModule] = found;
 
 	return {
-		lang,
 		slug,
 		post,
 		Content: contentModule.default
 	};
 };
+
