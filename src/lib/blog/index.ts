@@ -4,6 +4,7 @@ export interface BlogPost {
   slug: string;
   title: string;
   date: string;
+  tags?: string[];
   content: string;
 }
 
@@ -25,6 +26,7 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
       slug,
       title: data.title || slug,
       date: data.date || "",
+      tags: Array.isArray(data.tags) ? data.tags : [],
       content,
     });
   }
@@ -52,6 +54,7 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
     slug,
     title: data.title || slug,
     date: data.date || "",
+    tags: Array.isArray(data.tags) ? data.tags : [],
     content,
   };
 }
