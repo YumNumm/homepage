@@ -8,15 +8,20 @@ export interface BlogPost {
   content: string;
 }
 
-const allBlogModules = import.meta.glob<string>("../content/blog/*.md?raw", {
+const allBlogModules = import.meta.glob("../content/blog/*.md?raw", {
   eager: true,
   import: "default",
-});
+}) as Record<string, string>;
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
   const posts: BlogPost[] = [];
 
+
   for (const [path, contentString] of Object.entries(allBlogModules)) {
+    if (typeof contentString !== "string") {
+      console.error(`Expected string for ${path}, got:`, typeof contentString);
+      continue;
+    }
     const slug = path.split("/").pop()?.replace(".md?raw", "") || "";
     const { data, content } = matter(contentString);
 
