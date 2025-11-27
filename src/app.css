@@ -1,0 +1,17 @@
+:root {
+	font-family: 'JetBrains Mono', 'Noto Sans JP', monospace;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'JetBrains Mono', 'Noto Sans JP', monospace;
+	line-height: 1.6;
+	color: #333;
+	background-color: #fff;
+}
+
