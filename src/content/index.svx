@@ -3,6 +3,6 @@
 尾上 遼太朗 (おのうえ りょうたろう - Ryotaro Onoue, aka. もぐもぐ)
 
 
-```
+```ts
 final hoge = null;
 ```

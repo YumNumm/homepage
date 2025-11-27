@@ -34,7 +34,12 @@ const config = {
       ],
       highlight: {
         highlighter: async (code, lang = "text") => {
-          const html = escapeSvelte(highlighter.codeToHtml(code, lang));
+          const html = escapeSvelte(
+            highlighter.codeToHtml(code, {
+              lang,
+              theme: "github-dark-high-contrast",
+            })
+          );
           return `{@html ${html}}`;
         },
       },
