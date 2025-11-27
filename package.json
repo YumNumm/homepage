@@ -17,6 +17,8 @@
 	"devDependencies": {
 		"@biomejs/biome": "^2.3.8",
 		"@cloudflare/workers-types": "^4.20251127.0",
+		"@shikijs/colorized-brackets": "^3.17.0",
+		"@shikijs/twoslash": "^3.17.0",
 		"@sveltejs/adapter-cloudflare": "^7.2.4",
 		"@sveltejs/kit": "^2.49.0",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",

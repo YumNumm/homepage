@@ -337,6 +337,23 @@ pre code {
 	padding: 0;
 }
 
+.code-block-wrapper {
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+.code-block-title {
+	position: absolute;
+	top: 0.5rem;
+	right: 0.75rem;
+	font-size: 0.75rem;
+	color: var(--md-sys-color-on-surface-variant);
+	opacity: 0.7;
+	font-family: 'JetBrains Mono', monospace;
+	z-index: 1;
+	pointer-events: none;
+}
+
 blockquote {
 	border-left: 4px solid var(--md-sys-color-primary);
 	padding-left: 1rem;
