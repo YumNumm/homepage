@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../../app.css';
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+	import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
 	import type { LayoutData } from './$types';
 
 	let { lang, children }: LayoutData = $props();
@@ -20,7 +21,10 @@
 		<a href={/${lang}} style="margin-right: 1rem;">Home</a>
 		<a href={/${lang}/blog} style="margin-right: 1rem;">Blog</a>
 	</nav>
-	<ThemeToggle />
+	<div style="display: flex; gap: 1rem; align-items: center;">
+		<LanguageSwitcher currentLang={lang} />
+		<ThemeToggle />
+	</div>
 </header>
 
 <main style="padding: 2rem; max-width: 1200px; margin: 0 auto;">
