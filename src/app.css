@@ -71,6 +71,20 @@ html {
 	font-family: 'JetBrains Mono', 'Noto Sans JP', monospace;
 	font-variant-ligatures: common-ligatures;
 	height: 100%;
+	/* デフォルトはライトモードの背景 */
+	background: #e0e1f0;
+	letter-spacing: -0.02em;
+}
+
+/* ライトモード時はグラデーションを無効化 */
+:root[data-theme='light'],
+:root[data-radix-theme='light'] {
+	background: var(--color-background-start);
+}
+
+/* ダークモード時はグラデーションを有効化 */
+:root[data-theme='dark'],
+:root[data-radix-theme='dark'] {
 	background: linear-gradient(to bottom, var(--color-background-start) 0%, var(--color-background-end) 100%);
 	background-attachment: fixed;
 	background-repeat: no-repeat;
@@ -92,11 +106,28 @@ body {
 a {
 	color: var(--color-accent);
 	text-decoration: none;
+	transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
 a:hover {
 	color: var(--color-accent-dark);
 	text-decoration: underline;
+}
+
+/* ダークモード時のリンクコントラストを向上 */
+:root[data-theme='dark'] a,
+[data-radix-theme='dark'] a {
+	color: #8b9aff;
+}
+
+:root[data-theme='dark'] a:hover,
+[data-radix-theme='dark'] a:hover {
+	color: #a8b5ff;
+}
+
+:root[data-theme='dark'] a:focus-visible,
+[data-radix-theme='dark'] a:focus-visible {
+	color: #8b9aff;
 }
 
 a:focus-visible,
@@ -139,8 +170,19 @@ h6:hover {
 	margin-left: 0.5rem;
 }
 
+/* ダークモード時の見出しアンカーのコントラストを向上 */
+:root[data-theme='dark'] .heading-anchor,
+[data-radix-theme='dark'] .heading-anchor {
+	color: #8b9aff;
+}
+
+:root[data-theme='dark'] .heading-anchor:hover,
+[data-radix-theme='dark'] .heading-anchor:hover {
+	color: #a8b5ff;
+}
+
 h1::before {
-	content: '+';
+	content: '#';
 	position: absolute;
 	left: 0;
 	top: -0.2em;
@@ -154,11 +196,11 @@ h1::before {
 
 h1 {
 	font-size: 2rem;
-	font-weight: 700;
+	font-weight: bold;
 }
 
 h2::before {
-	content: '++';
+	content: '##';
 	position: absolute;
 	left: 0;
 	top: -0.2em;
@@ -172,14 +214,14 @@ h2::before {
 
 h2 {
 	font-size: 1.5rem;
-	font-weight: 600;
+	font-weight: bold;
 	position: relative;
 	margin-top: 2rem;
 	margin-bottom: 0.5rem;
 }
 
 h3::before {
-	content: '+++';
+	content: '###';
 	position: absolute;
 	left: 0;
 	top: -0.2em;
@@ -192,12 +234,12 @@ h3::before {
 }
 
 h3 {
-	font-size: 1.25rem;
+	font-size: 1.125rem;
 	font-weight: 600;
 }
 
 h4::before {
-	content: '++++';
+	content: '####';
 	position: absolute;
 	left: 0;
 	top: -0.2em;
@@ -210,12 +252,12 @@ h4::before {
 }
 
 h4 {
-	font-size: 1.125rem;
+	font-size: 1rem;
 	font-weight: 600;
 }
 
 h5::before {
-	content: '+++++';
+	content: '#####';
 	position: absolute;
 	left: 0;
 	top: -0.2em;
@@ -233,7 +275,7 @@ h5 {
 }
 
 h6::before {
-	content: '++++++';
+	content: '######';
 	position: absolute;
 	left: 0;
 	top: -0.2em;
@@ -254,6 +296,7 @@ p {
 	margin-bottom: 1rem;
 	color: var(--color-text);
 	line-height: 1.8;
+	font-size: 0.9375rem;
 }
 
 ul,
@@ -354,6 +397,73 @@ blockquote {
 	margin-bottom: 1rem;
 	color: var(--color-text-muted);
 	font-style: italic;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid var(--color-border);
+	margin: 2rem 0;
+	color: var(--color-border);
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 1rem;
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	overflow: hidden;
+	background: var(--color-surface);
+}
+
+thead {
+	background: var(--color-surface-hover);
+}
+
+th {
+	padding: 0.5rem 0.75rem;
+	text-align: left;
+	font-weight: 600;
+	color: var(--color-text);
+	border-bottom: 2px solid var(--color-border);
+	font-size: 0.9375rem;
+}
+
+td {
+	padding: 0.5rem 0.75rem;
+	border-bottom: 1px solid var(--color-border);
+	color: var(--color-text);
+	font-size: 0.9375rem;
+}
+
+tbody tr:last-child td {
+	border-bottom: none;
+}
+
+tbody tr:hover {
+	background: var(--color-surface-hover);
+	transition: background-color 0.2s ease;
+}
+
+:root[data-theme='dark'] table,
+[data-radix-theme='dark'] table {
+	border-color: var(--color-border);
+}
+
+:root[data-theme='dark'] th,
+[data-radix-theme='dark'] th {
+	border-bottom-color: var(--color-border);
+	background: var(--color-surface-hover);
+}
+
+:root[data-theme='dark'] td,
+[data-radix-theme='dark'] td {
+	border-bottom-color: var(--color-border);
+}
+
+:root[data-theme='dark'] tbody tr:hover,
+[data-radix-theme='dark'] tbody tr:hover {
+	background: var(--color-surface-hover);
 }
 
 /* View transitions */

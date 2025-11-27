@@ -1,24 +1,41 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { app, type App } from "../api/[...paths]/app";
-  import { hc } from "hono/client";
+  import type { PageData } from "./$types";
 
-  const postsPromise = getPosts();
-  async function getPosts() {
-    const client = hc<App>("/");
-    const response = await client.api.post.$get();
-    return response.json();
-  }
+  let { data }: { data: PageData } = $props();
 </script>
 
 <h1 style="margin-bottom: 2rem; color: var(--color-text);">Blog</h1>
 
-{#await postsPromise}
-  <p>Loading...</p>
-{:then posts}
+{#if data.posts && data.posts.length > 0}
   <ul>
-    {#each posts as post}
-      <li>{post.title}</li>
+    {#each data.posts as post}
+      <li>
+        <a href={`/blog/${post.slug}`}>
+          {post.title}
+        </a>
+        <span style="color: var(--color-text-muted); margin-left: 1rem;">
+          {new Date(post.date).toLocaleDateString("ja-JP")}
+        </span>
+        {#if post.tags && post.tags.length > 0}
+          <div style="margin-top: 0.5rem;">
+            {#each post.tags as tag}
+              <span
+                style="
+                  background: var(--color-surface);
+                  padding: 0.25rem 0.5rem;
+                  border-radius: 4px;
+                  margin-right: 0.5rem;
+                  font-size: 0.875rem;
+                "
+              >
+                {tag}
+              </span>
+            {/each}
+          </div>
+        {/if}
+      </li>
     {/each}
   </ul>
-{/await}
+{:else}
+  <p>ブログ投稿がありません。</p>
+{/if}

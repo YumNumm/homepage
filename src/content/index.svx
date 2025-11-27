@@ -1,3 +1,51 @@
-# Ryotaro Onoue
+<script lang="ts">
+  import Tag from "$lib/components/Tag.svelte";
 
-尾上 遼太朗 (おのうえ りょうたろう - Ryotaro Onoue, aka. もぐもぐ)
+</script>
+
+# <img src="/favicon.jpg" alt="favicon" style="width: 2em; height: 2em; border-radius: 50%;" /> Ryotaro Onoue
+
+尾上 遼太朗 (おのうえ りょうたろう, aka. **もぐもぐ**)
+
+<a href="mailto:admin@yumnumm.dev">Mail</a>
+・
+<a href="https://github.com/yumnumm">GitHub</a>
+・
+<a href="https://linkedin.com/in/yumnumm">LinkedIn</a>
+・
+<a href="https://x.com/yumnumm">X</a>
+<br />
+
+---
+
+## Experience
+
+### 2023.4 ~ 2025.11: YUMEMI Inc.
+
+- Flutterエンジニアとして、2023年4月に新卒入社。
+  Flutterマイスターエンジニアとして従事。
+
+### 2025.12- Accenture Japan Ltd
+- 2025.12 ~: Product Enginner Accosiate Manager
+
+---
+
+## Speaking Engagements
+
+| Date | Title | Event |
+|------|-------|-------|
+| 2025.11.16 | [FlutterKaigi 2025 公式アプリ&WebサイトのCDについて](https://speakerdeck.com/yumnumm/flutterkaigi-2025-gong-shi-apuri-and-websaitonocdnituite) | Flutter ZY |
+| 2025.11.12 | [FlutterKaigi 2025 システムの裏側](https://speakerdeck.com/yumnumm/flutterkaigi-2025-sisutemuli-ce) | FlutterKaigi 2025 前夜祭 |
+| 2025.06.20 | [Terraform+cloud-initで自宅サーバのLXDをIaCするお話](https://speakerdeck.com/yumnumm/terraform-plus-cloud-initdezi-zhai-sabanolxdwoiacsuruohua) | ゆるく自動化を学ぶ会 |
+| 2025.04.26 | [FlutterKaigi 2024における開発チームの取り組み と 2025への展望](https://speakerdeck.com/yumnumm/flutterkaigi-2024niokerukai-fa-timunoqu-rizu-mi-to-2025henozhan-wang) | FlutterKaigi mini #4 @Kyoto |
+| 2025.04.06 | [Dart WebAssemblyを使ったWeb API on Cloudflare Workers](https://speakerdeck.com/yumnumm/dart-webassemblywoshi-tutaweb-api-on-cloudflare-workers-688dba71-50f5-46c4-bddd-14c474790e7c) | Flutter Tokyo #6 |
+| 2024.07.12 | [Apple Walletでパスを作るお話](https://speakerdeck.com/yumnumm/apple-walletdepasuwozuo-ruohua) | Money Forward×YUMEMI.grow 自称若手モバイルエンジニアLT会 |
+| 2024.05.21 | [私がやってきたアウトプット集](https://speakerdeck.com/yumnumm/si-gayatutekitaautopututoji) | アウトプットとインプットを継続する秘訣LT会 |
+| 2024.05.16 | [俺/私のこだわりデスク大大大自慢LT大会](https://speakerdeck.com/yumnumm/si-nokodawaridesukuda-da-da-zi-man-ltda-hui-ltfes-number-12) | LTFes #12 俺/私のこだわりデスク大大大自慢LT大会 |
+| 2024.05.13 | [EQMonitorのご紹介](https://speakerdeck.com/yumnumm/shi-shi-yi-wai-dezuo-cheng-sitapurodakutonozi-man-da-hui) | LTFes #6 仕事以外で作成したプロダクトの自慢大会 |
+| 2023.12.19 | [Cloudflare Workers でプリントシール機の画像共有システムを制作したお話 @serverlessF](https://speakerdeck.com/yumnumm/cloudflare-workers-depurintosiruji-nohua-xiang-gong-you-sisutemuwozhi-zuo-sitaohua-at-serverlessf) | Serverless Frontend Meetup #4 |
+| 2023.12.09 | [Flutter×Jetpack Compose相互運用](https://speakerdeck.com/yumnumm/flutter-x-jetpack-composenoxiang-hu-yun-yong-at-gdg-tokyo-2023) | GDG Tokyo |
+| 2023.11.10 | [DartによるBFF構築・運用〜Dart From × Melos〜 (共同登壇)](https://speakerdeck.com/yumnumm/dartniyorubffgou-zhu-yun-yong-dart-frog-x-melos) | FlutterKaigi 2023 |
+| 2023.09.29 | [Flutterでもシリアルコンソール通信できるもん!](https://speakerdeck.com/yumnumm/flutterdemosiriarukonsorutong-xin-dekirumon) | YOUTRUST × ゆめみ Flutter LT #3 |
+| 2023.07.24 | [Flutterでも地図を描きたいお話](https://speakerdeck.com/yumnumm/flutterdemodi-tu-womiao-kitaiohua) | YOUTRUST × ゆめみ Flutter LT #2 |
+| 2023.05.18 | [Flutter×レシートプリンターで遊ぶ](https://speakerdeck.com/yumnumm/flutterxresitopurintadeyou-bu) | アットウェア x 未来シェア x ゆめみ 合同LT会 in 横浜 #yumemi_grow |

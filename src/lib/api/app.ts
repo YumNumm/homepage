@@ -26,6 +26,13 @@ async function getPosts(): Promise<Post[]> {
   return posts;
 }
 
+async function getPost(slug: string): Promise<Post> {
+  const paths = import.meta.glob("/src/content/blog/**/*", { eager: true });
+  const post = paths[`/src/content/blog/${slug}.svx`];
+  console.log(post);
+  return post;
+}
+
 export type HonoBindings = Partial<
   App.Platform["env"] & { caches: App.Platform["caches"] }
 >;
@@ -66,8 +73,8 @@ const router = new Hono<{
       if (!post) {
         return c.json({ error: "Post not found" }, 404);
       }
-      const content = await import(`../../../content/blog/${slug}.svx`);
-      return c.json({ ...post, Content: content.default });
+      const content = await getPost(slug);
+      return c.json({ ...post, Content: content });
     }
   );
 

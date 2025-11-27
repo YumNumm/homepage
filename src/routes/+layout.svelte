@@ -30,7 +30,7 @@
 
 		if (browser) {
 			// コードブロックのコピーボタンのイベントをハンドル
-			const handleCopyClick = async (event: MouseEvent) => {
+			const handleCopyClick = async (event: Event) => {
 				const button = event.currentTarget as HTMLButtonElement;
 				if (!button) return;
 
@@ -149,7 +149,7 @@
 			// クリーンアップ
 			return () => {
 				copyButtons.forEach((button) => {
-					button.removeEventListener('click', handleCopyClick);
+					button.removeEventListener('click', handleCopyClick as EventListener);
 				});
 				copyObserver.disconnect();
 				headings.forEach((heading) => {

@@ -7,13 +7,17 @@ const THEME_STORAGE_KEY = "theme";
 function getInitialTheme(): Theme {
   if (!browser) return "light";
 
+  // システム設定を優先
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const systemTheme = prefersDark ? "dark" : "light";
+
+  // localStorageに保存された値がある場合はそれを使用（ユーザーが明示的に設定した場合）
   const stored = localStorage.getItem(THEME_STORAGE_KEY);
   if (stored === "light" || stored === "dark") {
     return stored;
   }
 
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  return prefersDark ? "dark" : "light";
+  return systemTheme;
 }
 
 class ThemeStore {

@@ -3,6 +3,112 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        const THEME_STORAGE_KEY = "theme";
+        let theme = "light";
+
+        try {
+          const stored = localStorage.getItem(THEME_STORAGE_KEY);
+          if (stored === "light" || stored === "dark") {
+            theme = stored;
+          } else {
+            const prefersDark = window.matchMedia(
+              "(prefers-color-scheme: dark)"
+            ).matches;
+            theme = prefersDark ? "dark" : "light";
+          }
+        } catch (e) {
+          // localStorage が利用できない場合のフォールバック
+          const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
+          theme = prefersDark ? "dark" : "light";
+        }
+
+        document.documentElement.setAttribute("data-theme", theme);
+        document.documentElement.setAttribute("data-radix-theme", theme);
+
+        // CSSが読み込まれる前に背景色と色を設定
+        const isDark = theme === "dark";
+        if (isDark) {
+          document.documentElement.style.backgroundColor = "#050010";
+          document.documentElement.style.color = "#d0d1e7";
+        } else {
+          document.documentElement.style.backgroundColor = "#e0e1f0";
+          document.documentElement.style.color = "#070019";
+        }
+        document.body.style.backgroundColor = "transparent";
+
+        // 重要な要素に即座にスタイルを適用
+        const style = document.createElement("style");
+        style.textContent = isDark
+          ? `
+            header { background-color: #0f0f1a !important; border-bottom-color: #34384b !important; }
+            table { background-color: #0f0f1a !important; border-color: #34384b !important; }
+            button { background-color: #0f0f1a !important; border-color: #34384b !important; color: #d0d1e7 !important; }
+          `
+          : `
+            header { background-color: #ffffff !important; border-bottom-color: #e0e0e3 !important; }
+            table { background-color: #ffffff !important; border-color: #e0e0e3 !important; }
+            button { background-color: #ffffff !important; border-color: #e0e0e3 !important; color: #070019 !important; }
+          `;
+        document.head.appendChild(style);
+      })();
+    </script>
+    <style>
+      /* CSSが読み込まれる前に基本的なスタイルを適用 */
+      html[data-theme="dark"],
+      html[data-radix-theme="dark"] {
+        background-color: #050010;
+        color: #d0d1e7;
+      }
+      html[data-theme="light"],
+      html[data-radix-theme="light"] {
+        background-color: #e0e1f0;
+        color: #070019;
+      }
+      body {
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+      }
+      /* Header styles */
+      html[data-theme="dark"] header,
+      html[data-radix-theme="dark"] header {
+        background-color: #0f0f1a !important;
+        border-bottom-color: #34384b !important;
+      }
+      html[data-theme="light"] header,
+      html[data-radix-theme="light"] header {
+        background-color: #ffffff !important;
+        border-bottom-color: #e0e0e3 !important;
+      }
+      /* Table styles */
+      html[data-theme="dark"] table,
+      html[data-radix-theme="dark"] table {
+        background-color: #0f0f1a !important;
+        border-color: #34384b !important;
+      }
+      html[data-theme="light"] table,
+      html[data-radix-theme="light"] table {
+        background-color: #ffffff !important;
+        border-color: #e0e0e3 !important;
+      }
+      /* Button styles */
+      html[data-theme="dark"] button,
+      html[data-radix-theme="dark"] button {
+        background-color: #0f0f1a !important;
+        border-color: #34384b !important;
+        color: #d0d1e7 !important;
+      }
+      html[data-theme="light"] button,
+      html[data-radix-theme="light"] button {
+        background-color: #ffffff !important;
+        border-color: #e0e0e3 !important;
+        color: #070019 !important;
+      }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

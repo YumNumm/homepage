@@ -60,7 +60,7 @@ const config = {
     }),
   ],
 
-  kit: {
+	kit: {
     adapter: adapter(),
   },
 };
