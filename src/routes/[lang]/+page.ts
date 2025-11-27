@@ -20,7 +20,8 @@ export const load: PageLoad = async ({ params }) => {
 		const availablePaths = Object.keys(contentModules);
 		console.error(`Content not found for language: ${lang}`);
 		console.error('Available paths:', availablePaths);
-		throw new Error(`Content not found for language: ${lang}. Available paths: ${availablePaths.join(', ')}`);
+		// 404エラーを返す
+		throw new Error(`Content not found for language: ${lang}`);
 	}
 
 	const [, contentModule] = found;
