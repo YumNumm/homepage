@@ -187,7 +187,8 @@ h1::before {
 	content: '#';
 	position: absolute;
 	left: 0;
-	top: 0;
+	top: -0.2em;
+	font-size: 0.75em;
 	font-weight: 100;
 	color: var(--md-sys-color-on-surface-variant);
 	opacity: 0.6;
@@ -203,7 +204,8 @@ h2::before {
 	content: '##';
 	position: absolute;
 	left: 0;
-	top: 0;
+	top: -0.2em;
+	font-size: 0.75em;
 	font-weight: 100;
 	color: var(--md-sys-color-on-surface-variant);
 	opacity: 0.6;
@@ -222,7 +224,8 @@ h3::before {
 	content: '###';
 	position: absolute;
 	left: 0;
-	top: 0;
+	top: -0.2em;
+	font-size: 0.75em;
 	font-weight: 100;
 	color: var(--md-sys-color-on-surface-variant);
 	opacity: 0.6;
@@ -238,7 +241,8 @@ h4::before {
 	content: '####';
 	position: absolute;
 	left: 0;
-	top: 0;
+	top: -0.2em;
+	font-size: 0.75em;
 	font-weight: 100;
 	color: var(--md-sys-color-on-surface-variant);
 	opacity: 0.6;
@@ -254,7 +258,8 @@ h5::before {
 	content: '#####';
 	position: absolute;
 	left: 0;
-	top: 0;
+	top: -0.2em;
+	font-size: 0.75em;
 	font-weight: 100;
 	color: var(--md-sys-color-on-surface-variant);
 	opacity: 0.6;
@@ -270,7 +275,8 @@ h6::before {
 	content: '######';
 	position: absolute;
 	left: 0;
-	top: 0;
+	top: -0.2em;
+	font-size: 0.75em;
 	font-weight: 100;
 	color: var(--md-sys-color-on-surface-variant);
 	opacity: 0.6;
