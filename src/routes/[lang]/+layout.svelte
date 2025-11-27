@@ -1,10 +1,9 @@
 <script lang="ts">
-	import '../app.css';
+	import '../../app.css';
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 	import type { LayoutData } from './$types';
 
-	let { lang }: LayoutData = $props();
-	let { children } = $props();
+	let { lang, children }: LayoutData = $props();
 </script>
 
 <header
@@ -27,4 +26,3 @@
 <main style="padding: 2rem; max-width: 1200px; margin: 0 auto;">
 	{@render children()}
 </main>
-

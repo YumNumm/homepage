@@ -4,7 +4,7 @@
 	let { data }: { data: PageData } = $props();
 </script>
 
-{@if data.content}
-	<svelte:component this={data.content} />
+{#if data.Content}
+	<data.Content />
 {/if}
 

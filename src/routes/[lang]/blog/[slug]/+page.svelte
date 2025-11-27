@@ -4,7 +4,7 @@
 	let { data }: { data: PageData } = $props();
 </script>
 
-{@if data.content}
+{#if data.Content}
 	<article>
 		<h1 style="margin-bottom: 1rem; color: var(--md-sys-color-on-background);">
 			{data.post.title}
@@ -23,8 +23,7 @@
 			</time>
 		{/if}
 		<div style="color: var(--md-sys-color-on-surface);">
-			<svelte:component this={data.content} />
+			<data.Content />
 		</div>
 	</article>
 {/if}
-

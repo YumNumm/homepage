@@ -8,23 +8,27 @@ export interface BlogPost {
 	content: string;
 }
 
-export async function getBlogPosts(lang: 'en' | 'jp'): Promise<BlogPost[]> {
-	const modules = import.meta.glob<{ default: string }>(
-		`../../../content/${lang}/blog/*.md`,
-		{ eager: true }
-	);
+const allBlogModules = import.meta.glob<{ default: string }>('../../../content/*/blog/*.md', {
+	eager: true
+});
 
+export async function getBlogPosts(lang: 'en' | 'jp'): Promise<BlogPost[]> {
 	const posts: BlogPost[] = [];
 
-	for (const [path, module] of Object.entries(modules)) {
-		const slug = path.split('/').pop()?.replace('.md', '') || '';
+	for (const [path, module] of Object.entries(allBlogModules)) {
+		const pathParts = path.split('/');
+		const postLang = pathParts[pathParts.length - 3] as 'en' | 'jp';
+
+		if (postLang !== lang) continue;
+
+		const slug = pathParts[pathParts.length - 1]?.replace('.md', '') || '';
 		const { data, content } = matter(module.default);
 
 		posts.push({
 			slug,
 			title: data.title || slug,
 			date: data.date || '',
-			lang,
+			lang: postLang,
 			content
 		});
 	}
@@ -39,13 +43,8 @@ export async function getBlogPost(
 	lang: 'en' | 'jp',
 	slug: string
 ): Promise<BlogPost | null> {
-	const modules = import.meta.glob<{ default: string }>(
-		`../../../content/${lang}/blog/*.md`,
-		{ eager: true }
-	);
-
 	const path = `../../../content/${lang}/blog/${slug}.md`;
-	const module = modules[path];
+	const module = allBlogModules[path];
 
 	if (!module) {
 		return null;

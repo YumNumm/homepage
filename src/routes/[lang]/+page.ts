@@ -1,9 +1,9 @@
 import type { PageLoad } from './$types';
+import type { Component } from 'svelte';
 
-const contentModules = import.meta.glob<{ default: typeof import('*.svelte') }>(
-	'../../../content/*/index.md',
-	{ eager: true }
-);
+const contentModules = import.meta.glob<{ default: Component }>('../../../content/*/index.md', {
+	eager: true
+});
 
 export const load: PageLoad = async ({ params }) => {
 	const lang = params.lang;
@@ -16,7 +16,7 @@ export const load: PageLoad = async ({ params }) => {
 
 	return {
 		lang,
-		content: contentModule.default
+		Content: contentModule.default
 	};
 };
 
