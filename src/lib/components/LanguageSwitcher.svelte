@@ -20,7 +20,7 @@
 	}
 </script>
 
-<nav style="display: flex; gap: 0.5rem; align-items: center;">
+<nav style="display: flex; gap: 0.25rem; align-items: center;">
 	{#each languages as langItem, index}
 		<button
 			type="button"
@@ -29,7 +29,7 @@
 				background: transparent;
 				border: none;
 				cursor: pointer;
-				padding: 0.25rem 0.5rem;
+				padding: 0.25rem 0.375rem;
 				font-family: inherit;
 				transition: all 0.2s ease;
 				{langItem.code === currentLang
@@ -63,6 +63,7 @@
 				style="
 					color: var(--md-sys-color-outline-variant);
 					font-size: 0.875rem;
+					margin: 0 0.125rem;
 				"
 			>
 				/
