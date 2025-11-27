@@ -10,7 +10,7 @@ import { transformerTwoslash, rendererRich } from "@shikijs/twoslash";
 import {
   createCodeBlockHtml,
   extractTitleFromMeta,
-} from "./src/lib/utils/code-block.js";
+} from "./src/lib/utils/code-block.ts";
 
 const highlighter = await createHighlighter({
   themes: ["github-dark-high-contrast"],
@@ -51,7 +51,6 @@ const config = {
                 transformerTwoslash(),
                 transformerColorizedBrackets(),
               ],
-              decorations: {},
             })
           );
 

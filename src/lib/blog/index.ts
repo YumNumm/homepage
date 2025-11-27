@@ -16,7 +16,6 @@ const allBlogModules = import.meta.glob("../content/blog/*.md?raw", {
 export async function getBlogPosts(): Promise<BlogPost[]> {
   const posts: BlogPost[] = [];
 
-
   for (const [path, contentString] of Object.entries(allBlogModules)) {
     if (typeof contentString !== "string") {
       console.error(`Expected string for ${path}, got:`, typeof contentString);
@@ -52,7 +51,10 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
   const [, contentString] = found;
 
   if (typeof contentString !== "string") {
-    console.error(`Expected string for blog post ${slug}, got:`, typeof contentString);
+    console.error(
+      `Expected string for blog post ${slug}, got:`,
+      typeof contentString
+    );
     return null;
   }
 
