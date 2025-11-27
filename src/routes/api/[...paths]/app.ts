@@ -1,11 +1,11 @@
 import { Hono } from "hono";
-import { hc } from "hono/client";
 import type { Post } from "./models/post";
 import * as v from "valibot";
 import { PostSchema } from "./models/post";
 import { logger } from "hono/logger";
 import { secureHeaders } from "hono/secure-headers";
 import { vValidator } from "@hono/valibot-validator";
+import { cache } from "hono/cache";
 
 async function getPosts(): Promise<Post[]> {
   const posts: Post[] = [];
@@ -37,6 +37,12 @@ async function getPosts(): Promise<Post[]> {
 const router = new Hono()
   .use(logger())
   .use(secureHeaders())
+  .use(
+    cache({
+      cacheName: "api",
+      cacheControl: "max-age=60",
+    })
+  )
   .onError((err, c) => {
     console.error(err);
     return c.json(

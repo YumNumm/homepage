@@ -38,4 +38,3 @@ export const load: PageLoad = async ({ params, fetch }) => {
 		Content: contentModule.default
 	};
 };
-
