@@ -111,5 +111,72 @@ h4,
 h5,
 h6 {
 	color: var(--md-sys-color-on-background);
+	margin-top: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+h1 {
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+h2 {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+h3 {
+	font-size: 1.25rem;
+	font-weight: 600;
+}
+
+p {
+	margin-bottom: 1rem;
+	color: var(--md-sys-color-on-surface);
+	line-height: 1.8;
+}
+
+ul,
+ol {
+	margin-bottom: 1rem;
+	padding-left: 2rem;
+	color: var(--md-sys-color-on-surface);
+}
+
+li {
+	margin-bottom: 0.5rem;
+}
+
+code {
+	background: var(--md-sys-color-surface-container-high);
+	color: var(--md-sys-color-on-surface);
+	padding: 0.2rem 0.4rem;
+	border-radius: 4px;
+	font-size: 0.9em;
+	font-family: 'JetBrains Mono', monospace;
+}
+
+pre {
+	background: var(--md-sys-color-surface-container-high);
+	color: var(--md-sys-color-on-surface);
+	padding: 1rem;
+	border-radius: 8px;
+	overflow-x: auto;
+	margin-bottom: 1rem;
+	border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+pre code {
+	background: transparent;
+	padding: 0;
+}
+
+blockquote {
+	border-left: 4px solid var(--md-sys-color-primary);
+	padding-left: 1rem;
+	margin-left: 0;
+	margin-bottom: 1rem;
+	color: var(--md-sys-color-on-surface-variant);
+	font-style: italic;
 }
 
