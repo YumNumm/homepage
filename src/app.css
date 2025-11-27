@@ -163,7 +163,6 @@ h6 {
 	margin-top: 1.5rem;
 	margin-bottom: 1rem;
 	position: relative;
-	padding-left: 2rem;
 	cursor: pointer;
 	transition: opacity 0.2s ease;
 }
@@ -186,7 +185,7 @@ h6:hover {
 h1::before {
 	content: '#';
 	position: absolute;
-	left: -1.5rem;
+	left: 0;
 	top: 0;
 	font-weight: 100;
 	color: var(--md-sys-color-on-surface-variant);
@@ -201,7 +200,7 @@ h1 {
 h2::before {
 	content: '##';
 	position: absolute;
-	left: -2rem;
+	left: 0;
 	top: 0;
 	font-weight: 100;
 	color: var(--md-sys-color-on-surface-variant);
@@ -219,7 +218,7 @@ h2 {
 h3::before {
 	content: '###';
 	position: absolute;
-	left: -2.5rem;
+	left: 0;
 	top: 0;
 	font-weight: 100;
 	color: var(--md-sys-color-on-surface-variant);
@@ -234,7 +233,7 @@ h3 {
 h4::before {
 	content: '####';
 	position: absolute;
-	left: -3rem;
+	left: 0;
 	top: 0;
 	font-weight: 100;
 	color: var(--md-sys-color-on-surface-variant);
@@ -249,7 +248,7 @@ h4 {
 h5::before {
 	content: '#####';
 	position: absolute;
-	left: -3.5rem;
+	left: 0;
 	top: 0;
 	font-weight: 100;
 	color: var(--md-sys-color-on-surface-variant);
@@ -264,7 +263,7 @@ h5 {
 h6::before {
 	content: '######';
 	position: absolute;
-	left: -4rem;
+	left: 0;
 	top: 0;
 	font-weight: 100;
 	color: var(--md-sys-color-on-surface-variant);
