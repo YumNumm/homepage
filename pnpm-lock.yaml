@@ -8,12 +8,18 @@ importers:
 
   .:
     dependencies:
+      '@hono/valibot-validator':
+        specifier: ^0.6.0
+        version: 0.6.0(hono@4.10.7)(valibot@1.2.0(typescript@5.9.3))
       '@radix-ui/themes':
         specifier: ^3.2.1
         version: 3.2.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       shiki:
         specifier: ^3.17.0
         version: 3.17.0
+      valibot:
+        specifier: ^1.2.0
+        version: 1.2.0(typescript@5.9.3)
     devDependencies:
       '@biomejs/biome':
         specifier: ^2.3.8
@@ -39,6 +45,9 @@ importers:
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
+      hono:
+        specifier: ^4.10.7
+        version: 4.10.7
       mdsvex:
         specifier: ^0.12.6
         version: 0.12.6(svelte@5.45.2)
@@ -495,6 +504,12 @@ packages:
 
   '@floating-ui/utils@0.2.10':
     resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
+
+  '@hono/valibot-validator@0.6.0':
+    resolution: {integrity: sha512-p1kbfF9FiXX9+tjWZmDkfjs0GcZ+o6XGFMwCiXiTlUDl9C6Bu+qH5YMgxtokK6hAvMk4s3eScAFwKLC0qeN2Ow==}
+    peerDependencies:
+      hono: '>=3.9.0'
+      valibot: ^1.0.0 || ^1.0.0-beta.4 || ^1.0.0-rc
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -1811,6 +1826,10 @@ packages:
   hast-util-whitespace@3.0.0:
     resolution: {integrity: sha512-88JUN06ipLwsnv+dVn+OIYOvAuvBMy/Qoi6O7mQHxdPXpjy+Cd6xRkWwux7DKO+4sYILtLBRIKgsdpS2gQc7qw==}
 
+  hono@4.10.7:
+    resolution: {integrity: sha512-icXIITfw/07Q88nLSkB9aiUrd8rYzSweK681Kjo/TSggaGbOX4RRyxxm71v+3PC8C/j+4rlxGeoTRxQDkaJkUw==}
+    engines: {node: '>=16.9.0'}
+
   html-enumerated-attributes@1.1.1:
     resolution: {integrity: sha512-fxfswuADQ6N6RmCUYoCEIw09Zbk/h8GJSJsbiQ3Uw3mkQegJ5b7Eu5Tpxl2xDUq9meWmivHe0GFieG2qHl2j4A==}
 
@@ -2347,6 +2366,14 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
+  valibot@1.2.0:
+    resolution: {integrity: sha512-mm1rxUsmOxzrwnX5arGS+U4T25RdvpPjPN4yR0u9pUBov9+zGVtO84tif1eY4r6zWxVxu3KzIyknJy3rxfRZZg==}
+    peerDependencies:
+      typescript: '>=5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   vfile-location@5.0.3:
     resolution: {integrity: sha512-5yXvWDEgqeiYiBe1lbxYF7UMAIm/IcopxMHrMQDq3nvKcjPKIhZklUKL+AE7J7uApI4kwe2snsK+eI6UTj9EHg==}
 
@@ -2695,6 +2722,11 @@ snapshots:
       react-dom: 19.2.0(react@19.2.0)
 
   '@floating-ui/utils@0.2.10': {}
+
+  '@hono/valibot-validator@0.6.0(hono@4.10.7)(valibot@1.2.0(typescript@5.9.3))':
+    dependencies:
+      hono: 4.10.7
+      valibot: 1.2.0(typescript@5.9.3)
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
@@ -3907,6 +3939,8 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.4
 
+  hono@4.10.7: {}
+
   html-enumerated-attributes@1.1.1: {}
 
   html-url-attributes@3.0.1: {}
@@ -4783,6 +4817,10 @@ snapshots:
   use-sync-external-store@1.6.0(react@19.2.0):
     dependencies:
       react: 19.2.0
+
+  valibot@1.2.0(typescript@5.9.3):
+    optionalDependencies:
+      typescript: 5.9.3
 
   vfile-location@5.0.3:
     dependencies:

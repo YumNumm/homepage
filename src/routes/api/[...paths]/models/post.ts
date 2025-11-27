@@ -1,0 +1,12 @@
+import * as v from "valibot";
+
+export const PostSchema = v.object({
+  title: v.string(),
+  slug: v.string(),
+  description: v.string(),
+  date: v.string(),
+  tags: v.array(v.string()),
+  published: v.boolean(),
+});
+
+export type Post = v.InferOutput<typeof PostSchema>;
