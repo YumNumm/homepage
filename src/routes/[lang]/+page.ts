@@ -1,10 +1,13 @@
 import type { PageLoad } from './$types';
 import type { Component } from 'svelte';
 
-// import.meta.globはsrcディレクトリからの相対パスを使用
-const contentModules = import.meta.glob<{ default: Component }>('../../content/*/index.{md,svx}', {
-	eager: true
-});
+// mdsvexで処理された.svxと.mdファイルを読み込む
+const contentModules = import.meta.glob<{ default: Component }>(
+	'../../content/*/index.{md,svx}',
+	{
+		eager: true
+	}
+);
 
 export const load: PageLoad = async ({ params }) => {
 	const lang = params.lang;
@@ -21,11 +24,9 @@ export const load: PageLoad = async ({ params }) => {
 	});
 
 	if (!found) {
-		// デバッグ用: 利用可能なパスをログ出力
 		const availablePaths = Object.keys(contentModules);
 		console.error(`Content not found for language: ${lang}`);
 		console.error('Available paths:', availablePaths);
-		// 404エラーを返す
 		throw new Error(`Content not found for language: ${lang}`);
 	}
 

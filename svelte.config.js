@@ -1,27 +1,23 @@
-import adapter from "@sveltejs/adapter-cloudflare";
-import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
-import { mdsvex } from "mdsvex";
+import adapter from '@sveltejs/adapter-cloudflare';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import { mdsvex } from 'mdsvex';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  extensions: [".svelte", ".md", ".svx"],
-  preprocess: [
-    vitePreprocess(),
-    mdsvex({
-      extensions: [".svx"],
-      layout: {
-        blog: "./src/routes/[lang]/blog/[slug]/+page.svelte",
-        _: "./src/routes/[lang]/+page.svelte",
-      },
+	extensions: ['.svelte', '.md', '.svx'],
+	preprocess: [
+		vitePreprocess(),
+		mdsvex({
+			extensions: ['.svx', '.md'],
 			smartypants: {
-				dashes: "oldschool",
+				dashes: 'oldschool'
 			}
-    }),
-  ],
+		})
+	],
 
-  kit: {
-    adapter: adapter(),
-  },
+	kit: {
+		adapter: adapter()
+	}
 };
 
 export default config;
