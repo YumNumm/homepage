@@ -11,7 +11,7 @@ const allBlogModules = import.meta.glob<{ default: string }>('../content/blog/*.
 	eager: true
 });
 
-export async function getBlogPosts(lang: 'en' | 'jp'): Promise<BlogPost[]> {
+export async function getBlogPosts(): Promise<BlogPost[]> {
 	const posts: BlogPost[] = [];
 
 	for (const [path, module] of Object.entries(allBlogModules)) {
@@ -32,10 +32,7 @@ export async function getBlogPosts(lang: 'en' | 'jp'): Promise<BlogPost[]> {
 	});
 }
 
-export async function getBlogPost(
-	lang: 'en' | 'jp',
-	slug: string
-): Promise<BlogPost | null> {
+export async function getBlogPost(slug: string): Promise<BlogPost | null> {
 	const found = Object.entries(allBlogModules).find(([path]) => {
 		return path.includes(`content/blog/${slug}.md`);
 	});

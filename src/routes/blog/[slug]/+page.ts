@@ -10,7 +10,7 @@ const blogModules = import.meta.glob<{ default: Component }>('../../../content/b
 export const load: PageLoad = async ({ params }) => {
 	const slug = params.slug;
 
-	const post = await getBlogPost('jp', slug);
+	const post = await getBlogPost(slug);
 
 	if (!post) {
 		throw error(404, 'Post not found');
