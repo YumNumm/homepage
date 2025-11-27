@@ -4,8 +4,7 @@
 	import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
 	import type { LayoutData } from './$types';
 
-	let { lang }: LayoutData = $props();
-	let { children } = $props();
+	let { lang, children }: LayoutData & { children: import('svelte').Snippet } = $props();
 </script>
 
 <header
