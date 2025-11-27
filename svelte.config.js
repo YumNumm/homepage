@@ -20,9 +20,11 @@ const config = {
         [
           rehypeAutolinkHeadings,
           {
-            behavior: "wrap",
+            behavior: "append",
             properties: {
               className: ["heading-anchor"],
+              ariaHidden: true,
+              tabIndex: -1,
             },
           },
         ],
