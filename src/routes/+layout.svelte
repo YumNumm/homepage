@@ -168,6 +168,11 @@
 <Theme>
 	<header
 		style="
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 100;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
@@ -185,7 +190,7 @@
 		</div>
 	</header>
 
-	<main style="padding: 2rem; max-width: 1200px; margin: 0 auto;">
+	<main style="padding: 2rem; padding-top: calc(2rem + 64px); max-width: 1200px; margin: 0 auto; min-height: calc(100vh - 64px);">
 		{@render children()}
 	</main>
 
