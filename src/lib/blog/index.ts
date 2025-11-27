@@ -8,7 +8,7 @@ export interface BlogPost {
 	content: string;
 }
 
-const allBlogModules = import.meta.glob<{ default: string }>('../../../content/*/blog/*.md', {
+const allBlogModules = import.meta.glob<{ default: string }>('../../../../content/*/blog/*.md', {
 	eager: true
 });
 
@@ -43,12 +43,15 @@ export async function getBlogPost(
 	lang: 'en' | 'jp',
 	slug: string
 ): Promise<BlogPost | null> {
-	const path = `../../../content/${lang}/blog/${slug}.md`;
-	const module = allBlogModules[path];
+	const found = Object.entries(allBlogModules).find(([path]) => {
+		return path.includes(`/content/${lang}/blog/${slug}.md`);
+	});
 
-	if (!module) {
+	if (!found) {
 		return null;
 	}
+
+	const [, module] = found;
 
 	const { data, content } = matter(module.default);
 
@@ -60,4 +63,3 @@ export async function getBlogPost(
 		content
 	};
 }
-

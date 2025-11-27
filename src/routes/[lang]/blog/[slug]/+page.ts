@@ -17,12 +17,15 @@ export const load: PageLoad = async ({ params }) => {
 		throw error(404, 'Post not found');
 	}
 
-	const contentPath = `../../../../content/${lang}/blog/${slug}.md`;
-	const contentModule = blogModules[contentPath];
+	const found = Object.entries(blogModules).find(([path]) => {
+		return path.includes(`/content/${lang}/blog/${slug}.md`);
+	});
 
-	if (!contentModule) {
+	if (!found) {
 		throw error(404, 'Content not found');
 	}
+
+	const [, contentModule] = found;
 
 	return {
 		lang,
@@ -31,4 +34,3 @@ export const load: PageLoad = async ({ params }) => {
 		Content: contentModule.default
 	};
 };
-

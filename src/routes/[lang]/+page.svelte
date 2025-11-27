@@ -7,4 +7,3 @@
 {#if data.Content}
 	<data.Content />
 {/if}
-
