@@ -4,8 +4,20 @@
 	import { themeStore } from '$lib/stores/theme';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
+	import Snackbar from '$lib/components/Snackbar.svelte';
 
 	let { children } = $props();
+
+	let snackbarMessage = $state('');
+	let showSnackbar = $state(false);
+
+	const showSnackbarMessage = (message: string) => {
+		snackbarMessage = message;
+		showSnackbar = true;
+		setTimeout(() => {
+			showSnackbar = false;
+		}, 3000);
+	};
 
 	onMount(() => {
 		themeStore.init();
@@ -23,18 +35,20 @@
 				url.hash = id;
 				const urlString = url.toString();
 
+				// URLをコピー
 				navigator.clipboard
 					.writeText(urlString)
 					.then(() => {
-						// 視覚的なフィードバック
-						const originalOpacity = target.style.opacity;
-						target.style.opacity = '0.5';
-						setTimeout(() => {
-							target.style.opacity = originalOpacity || '';
-						}, 200);
+						// 見出しにスクロール
+						target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+						// URLを更新（ハッシュを追加）
+						window.history.pushState(null, '', urlString);
+						// Snackbarを表示
+						showSnackbarMessage('URLをコピーしました');
 					})
 					.catch((err) => {
 						console.error('Failed to copy URL:', err);
+						showSnackbarMessage('URLのコピーに失敗しました');
 					});
 			};
 
@@ -84,3 +98,7 @@
 </svelte:head>
 
 {@render children()}
+
+{#if showSnackbar}
+	<Snackbar message={snackbarMessage} />
+{/if}
