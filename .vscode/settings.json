@@ -1,0 +1,6 @@
+{
+	"debug.javascript.defaultRuntimeExecutable": {
+		"pwa-node": "~/.local/share/mise/shims/node"
+	},
+	"mise.configureExtensionsAutomatically": false
+}
