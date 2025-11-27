@@ -8,20 +8,20 @@ export interface BlogPost {
   content: string;
 }
 
-const allBlogModules = import.meta.glob<{ default: string }>(
-  "../content/blog/*.md",
+const allBlogModules = import.meta.glob<string>(
+  "../content/blog/*.md?raw",
   {
     eager: true,
-    query: "?raw",
+    import: "default",
   }
 );
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
   const posts: BlogPost[] = [];
 
-  for (const [path, module] of Object.entries(allBlogModules)) {
-    const slug = path.split("/").pop()?.replace(".md", "") || "";
-    const { data, content } = matter(module.default);
+  for (const [path, contentString] of Object.entries(allBlogModules)) {
+    const slug = path.split("/").pop()?.replace(".md?raw", "") || "";
+    const { data, content } = matter(contentString);
 
     posts.push({
       slug,
@@ -47,9 +47,9 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
     return null;
   }
 
-  const [, module] = found;
+  const [, contentString] = found;
 
-  const { data, content } = matter(module.default);
+  const { data, content } = matter(contentString);
 
   return {
     slug,
