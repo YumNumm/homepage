@@ -1,48 +1,48 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+import { onMount } from "svelte";
 
-  let { initialRows = 3 }: { initialRows?: number } = $props();
-  let expanded = $state(false);
-  let wrapperElement: HTMLDivElement | null = $state(null);
-  let tableElement: HTMLTableElement | null = $state(null);
-  let rows: HTMLTableRowElement[] = $state([]);
-  let showButton = $state(false);
+let { initialRows = 3 }: { initialRows?: number } = $props();
+let expanded = $state(false);
+let wrapperElement: HTMLDivElement | null = $state(null);
+let tableElement: HTMLTableElement | null = $state(null);
+let rows: HTMLTableRowElement[] = $state([]);
+let showButton = $state(false);
 
-  onMount(() => {
-    if (!tableElement) return;
+onMount(() => {
+	if (!tableElement) return;
 
-    const tbody = tableElement.querySelector("tbody");
-    if (!tbody) return;
+	const tbody = tableElement.querySelector("tbody");
+	if (!tbody) return;
 
-    const tbodyRows = Array.from(tbody.querySelectorAll("tr"));
-    rows = tbodyRows;
-    showButton = rows.length > initialRows;
+	const tbodyRows = Array.from(tbody.querySelectorAll("tr"));
+	rows = tbodyRows;
+	showButton = rows.length > initialRows;
 
-    if (!expanded && rows.length > initialRows) {
-      tbodyRows.slice(initialRows).forEach((row) => {
-        (row as HTMLElement).style.display = "none";
-      });
-    }
-  });
+	if (!expanded && rows.length > initialRows) {
+		tbodyRows.slice(initialRows).forEach((row) => {
+			(row as HTMLElement).style.display = "none";
+		});
+	}
+});
 
-  function toggle() {
-    if (!tableElement) return;
+function toggle() {
+	if (!tableElement) return;
 
-    const tbody = tableElement.querySelector("tbody");
-    if (!tbody) return;
+	const tbody = tableElement.querySelector("tbody");
+	if (!tbody) return;
 
-    expanded = !expanded;
+	expanded = !expanded;
 
-    if (expanded) {
-      rows.forEach((row) => {
-        (row as HTMLElement).style.display = "";
-      });
-    } else {
-      rows.slice(initialRows).forEach((row) => {
-        (row as HTMLElement).style.display = "none";
-      });
-    }
-  }
+	if (expanded) {
+		rows.forEach((row) => {
+			(row as HTMLElement).style.display = "";
+		});
+	} else {
+		rows.slice(initialRows).forEach((row) => {
+			(row as HTMLElement).style.display = "none";
+		});
+	}
+}
 </script>
 
 <div class="collapsible-table-wrapper" bind:this={wrapperElement}>

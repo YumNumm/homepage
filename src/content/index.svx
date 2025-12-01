@@ -1,11 +1,45 @@
 <script lang="ts">
   import Tag from "$lib/components/Tag.svelte";
 
+  const birthDate = new Date(2004, 8, 17); // 2004年9月17日 (月は0-indexed)
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
+  // 各詳細モーダルへのリンク関数
+  const openDetail = (detail: string) => {
+    window.dispatchEvent(new CustomEvent('detail-modal-open', { detail }));
+  };
 </script>
 
-# <img src="/favicon.jpg" alt="favicon" style="width: 2em; height: 2em; border-radius: 50%;" /> Ryotaro Onoue
+# <div id="name"><img src="/favicon.jpg" alt="favicon" style="width: 2em; height: 2em; border-radius: 50%;" /> Ryotaro Onoue</div>
+
+<style>
+  #name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  #name img {
+    margin-bottom: 0.25rem;
+  }
+
+  .profile-info {
+    text-align: center;
+    padding-left: 0 !important;
+  }
+</style>
+
+<div class="profile-info">
 
 尾上 遼太朗 (おのうえ りょうたろう, aka. **もぐもぐ**)
+
+2004年9月17日生まれ ({age}歳)
 
 <a href="mailto:admin@yumnumm.dev">Mail</a>
 ・
@@ -14,7 +48,18 @@
 <a href="https://linkedin.com/in/yumnumm">LinkedIn</a>
 ・
 <a href="https://x.com/yumnumm">X</a>
+
+</div>
+
 <br />
+
+---
+
+## Skills
+
+- Flutter
+- Dart
+- TypeScript (Cloudflare Workersなど)
 
 ---
 
@@ -25,8 +70,43 @@
 - Flutterエンジニアとして、2023年4月に新卒入社。
   Flutterマイスターエンジニアとして従事。
 
+<button class="detail-button" onclick={() => openDetail('yumemi')}>
+  <span>詳しく見る</span>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M5 12h14M12 5l7 7-7 7"/>
+  </svg>
+</button>
+
 ### 2025.12- Accenture Japan Ltd
 - 2025.12 ~: Product Enginner Accosiate Manager
+
+---
+
+## Education
+
+### 2020.4 ~ 2023.3: 横浜市立横浜サイエンスフロンティア高等学校
+
+<button class="detail-button" onclick={() => openDetail('highschool')}>
+  <span>詳しく見る</span>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M5 12h14M12 5l7 7-7 7"/>
+  </svg>
+</button>
+
+---
+
+## Projects
+
+### <img src="/EQMonitor_icon.webp" alt="EQMonitor Icon" width="50em" height="50em" /> **EQMonitor**
+
+地震速報アプリケーション
+
+<button class="detail-button" onclick={() => openDetail('eqmonitor')}>
+  <span>詳しく見る</span>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M5 12h14M12 5l7 7-7 7"/>
+  </svg>
+</button>
 
 ---
 

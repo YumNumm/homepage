@@ -1,5 +1,7 @@
+@import "@fontsource/google-sans-code";
+
 :root {
-	font-family: 'JetBrains Mono', 'Noto Sans JP', monospace;
+	font-family: "JetBrains Mono", "Noto Sans JP", monospace;
 	font-variant-ligatures: common-ligatures;
 	--scrollbar-thumb: #333;
 }
@@ -23,20 +25,20 @@ main {
 	box-sizing: border-box;
 }
 
-:root[data-theme='light'],
-[data-radix-theme='light'] {
+:root[data-theme="light"],
+[data-radix-theme="light"] {
 	--color-accent: #2a37f4;
 	--color-accent-dark: #000ecc;
 	--color-gray: #8b8d98;
 	--color-gray-dark: #34384b;
-	--color-background-start: #e0e1f0;
+	--color-background-start: #e4f2ff;
 	--color-background-end: #7a7ba0;
 	--color-background-dark: #070019;
-	--color-text: #070019;
-	--color-text-muted: #34384b;
+	--color-text: #1a1a2e;
+	--color-text-muted: #4a4a5e;
 	--color-surface: #ffffff;
 	--color-surface-hover: #f5f5f7;
-	--color-border: #e0e0e3;
+	--color-border: #d0d0d8;
 
 	/* Radix UI Themes variables */
 	--accent-9: #2a37f4;
@@ -45,15 +47,15 @@ main {
 	--gray-10: #34384b;
 }
 
-:root[data-theme='dark'],
-[data-radix-theme='dark'] {
+:root[data-theme="dark"],
+[data-radix-theme="dark"] {
 	--color-accent: #333dc7;
 	--color-accent-dark: #000ecc;
 	--color-gray: #8b8d98;
 	--color-gray-dark: #34384b;
-	--color-background-start: #050010;
-	--color-background-end: #1a0033;
-	--color-background-dark: #070019;
+	--color-background-start: #0b192c;
+	--color-background-end: #0b192c;
+	--color-background-dark: #0b192c;
 	--color-text: #d0d1e7;
 	--color-text-muted: #8b8d98;
 	--color-surface: #0f0f1a;
@@ -68,32 +70,33 @@ main {
 }
 
 html {
-	font-family: 'JetBrains Mono', 'Noto Sans JP', monospace;
+	font-family: "JetBrains Mono", "Noto Sans JP", monospace;
 	font-variant-ligatures: common-ligatures;
 	height: 100%;
 	/* デフォルトはライトモードの背景 */
-	background: #e0e1f0;
+	background: #e4f2ff;
 	letter-spacing: -0.02em;
+	/* Safe area外まで背景を伸ばす */
+	padding-top: env(safe-area-inset-top);
+	padding-bottom: env(safe-area-inset-bottom);
+	padding-left: env(safe-area-inset-left);
+	padding-right: env(safe-area-inset-right);
 }
 
 /* ライトモード時はグラデーションを無効化 */
-:root[data-theme='light'],
-:root[data-radix-theme='light'] {
+:root[data-theme="light"],
+:root[data-radix-theme="light"] {
 	background: var(--color-background-start);
 }
 
-/* ダークモード時はグラデーションを有効化 */
-:root[data-theme='dark'],
-:root[data-radix-theme='dark'] {
-	background: linear-gradient(to bottom, var(--color-background-start) 0%, var(--color-background-end) 100%);
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center top;
+/* ダークモード時は単色背景 */
+:root[data-theme="dark"],
+:root[data-radix-theme="dark"] {
+	background: var(--color-background-start);
 }
 
 body {
-	font-family: 'JetBrains Mono', 'Noto Sans JP', monospace;
+	font-family: "JetBrains Mono", "Noto Sans JP", monospace;
 	font-variant-ligatures: common-ligatures;
 	line-height: 1.6;
 	color: var(--color-text);
@@ -101,12 +104,17 @@ body {
 	background: transparent;
 	transition: color 0.3s ease;
 	overflow: hidden;
+	/* Safe area外まで背景を伸ばす */
+	margin: 0;
+	padding: 0;
 }
 
 a {
 	color: var(--color-accent);
 	text-decoration: none;
-	transition: color 0.2s ease, text-decoration 0.2s ease;
+	transition:
+		color 0.2s ease,
+		text-decoration 0.2s ease;
 }
 
 a:hover {
@@ -115,18 +123,18 @@ a:hover {
 }
 
 /* ダークモード時のリンクコントラストを向上 */
-:root[data-theme='dark'] a,
-[data-radix-theme='dark'] a {
+:root[data-theme="dark"] a,
+[data-radix-theme="dark"] a {
 	color: #8b9aff;
 }
 
-:root[data-theme='dark'] a:hover,
-[data-radix-theme='dark'] a:hover {
+:root[data-theme="dark"] a:hover,
+[data-radix-theme="dark"] a:hover {
 	color: #a8b5ff;
 }
 
-:root[data-theme='dark'] a:focus-visible,
-[data-radix-theme='dark'] a:focus-visible {
+:root[data-theme="dark"] a:focus-visible,
+[data-radix-theme="dark"] a:focus-visible {
 	color: #8b9aff;
 }
 
@@ -171,18 +179,18 @@ h6:hover {
 }
 
 /* ダークモード時の見出しアンカーのコントラストを向上 */
-:root[data-theme='dark'] .heading-anchor,
-[data-radix-theme='dark'] .heading-anchor {
+:root[data-theme="dark"] .heading-anchor,
+[data-radix-theme="dark"] .heading-anchor {
 	color: #8b9aff;
 }
 
-:root[data-theme='dark'] .heading-anchor:hover,
-[data-radix-theme='dark'] .heading-anchor:hover {
+:root[data-theme="dark"] .heading-anchor:hover,
+[data-radix-theme="dark"] .heading-anchor:hover {
 	color: #a8b5ff;
 }
 
 h1::before {
-	content: '#';
+	content: "#";
 	position: absolute;
 	left: 0;
 	top: -0.2em;
@@ -200,7 +208,7 @@ h1 {
 }
 
 h2::before {
-	content: '##';
+	content: "##";
 	position: absolute;
 	left: 0;
 	top: -0.2em;
@@ -220,35 +228,9 @@ h2 {
 	margin-bottom: 0.5rem;
 }
 
-h3::before {
-	content: '###';
-	position: absolute;
-	left: 0;
-	top: -0.2em;
-	font-size: 0.75em;
-	font-weight: 100;
-	color: var(--color-text-muted);
-	opacity: 0.6;
-	line-height: inherit;
-	font-variant-ligatures: common-ligatures;
-}
-
 h3 {
 	font-size: 1.125rem;
 	font-weight: 600;
-}
-
-h4::before {
-	content: '####';
-	position: absolute;
-	left: 0;
-	top: -0.2em;
-	font-size: 0.75em;
-	font-weight: 100;
-	color: var(--color-text-muted);
-	opacity: 0.6;
-	line-height: inherit;
-	font-variant-ligatures: common-ligatures;
 }
 
 h4 {
@@ -256,35 +238,9 @@ h4 {
 	font-weight: 600;
 }
 
-h5::before {
-	content: '#####';
-	position: absolute;
-	left: 0;
-	top: -0.2em;
-	font-size: 0.75em;
-	font-weight: 100;
-	color: var(--color-text-muted);
-	opacity: 0.6;
-	line-height: inherit;
-	font-variant-ligatures: common-ligatures;
-}
-
 h5 {
 	font-size: 1rem;
 	font-weight: 600;
-}
-
-h6::before {
-	content: '######';
-	position: absolute;
-	left: 0;
-	top: -0.2em;
-	font-size: 0.75em;
-	font-weight: 100;
-	color: var(--color-text-muted);
-	opacity: 0.6;
-	line-height: inherit;
-	font-variant-ligatures: common-ligatures;
 }
 
 h6 {
@@ -297,12 +253,21 @@ p {
 	color: var(--color-text);
 	line-height: 1.8;
 	font-size: 0.9375rem;
+	padding-left: 1.5rem;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin: 1rem 0;
+	border-radius: 8px;
 }
 
 ul,
 ol {
 	margin-bottom: 1rem;
-	padding-left: 2rem;
+	padding-left: 3.5rem;
 	color: var(--color-text);
 }
 
@@ -316,7 +281,7 @@ code {
 	padding: 0.2rem 0.4rem;
 	border-radius: 4px;
 	font-size: 0.9em;
-	font-family: 'JetBrains Mono', monospace;
+	font-family: "Google Sans Code", monospace;
 }
 
 pre {
@@ -325,18 +290,37 @@ pre {
 	padding: 1rem;
 	border-radius: 8px;
 	overflow-x: auto;
+	overflow-y: visible;
 	margin-bottom: 1rem;
 	border: 1px solid var(--color-border);
+	font-family: "Google Sans Code", monospace;
 }
 
 pre code {
 	background: transparent;
 	padding: 0;
+	font-family: "Google Sans Code", monospace;
+}
+
+/* Shikiが生成するコードブロックにもフォントを適用 */
+.shiki,
+.shiki code,
+.shiki pre,
+.code-block-content pre,
+.code-block-content code {
+	font-family: "Google Sans Code", monospace;
+}
+
+.shiki,
+.code-block-content pre.shiki {
+	overflow-x: auto;
+	overflow-y: visible !important;
 }
 
 .code-block-wrapper {
 	position: relative;
 	margin-bottom: 1rem;
+	overflow: visible;
 }
 
 .code-block-header {
@@ -353,7 +337,7 @@ pre code {
 	font-size: 0.75rem;
 	color: var(--color-text-muted);
 	opacity: 0.7;
-	font-family: 'JetBrains Mono', monospace;
+	font-family: "Google Sans Code", monospace;
 	pointer-events: none;
 }
 
@@ -365,7 +349,10 @@ pre code {
 	cursor: pointer;
 	color: var(--color-text-muted);
 	opacity: 0.7;
-	transition: opacity 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+	transition:
+		opacity 0.2s ease,
+		background-color 0.2s ease,
+		border-color 0.2s ease;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -388,6 +375,69 @@ pre code {
 
 .code-block-content {
 	position: relative;
+	overflow: visible;
+}
+
+.code-block-content pre {
+	overflow-x: auto;
+	overflow-y: visible;
+}
+
+/* Twoslash styles */
+pre code {
+	position: relative;
+}
+
+.twoslash-hover {
+	position: relative;
+	border-bottom: 1px dotted var(--color-text-muted);
+	cursor: help;
+}
+
+.twoslash-popup-container {
+	position: absolute;
+	display: none;
+	left: 0;
+	bottom: calc(100% + 0.5rem);
+	z-index: 10000;
+	background: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: 4px;
+	padding: 0.75rem;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	max-width: 500px;
+	min-width: 200px;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	pointer-events: none;
+}
+
+.twoslash-hover:hover .twoslash-popup-container {
+	display: block;
+}
+
+.twoslash-popup-code {
+	font-family: "Google Sans Code", monospace;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	display: block;
+	margin-bottom: 0.5rem;
+}
+
+.twoslash-popup-docs {
+	font-size: 0.8125rem;
+	line-height: 1.5;
+	color: var(--color-text-muted);
+	margin-top: 0.5rem;
+	border-top: 1px solid var(--color-border);
+	padding-top: 0.5rem;
+}
+
+:root[data-theme="dark"] .twoslash-popup-container,
+[data-radix-theme="dark"] .twoslash-popup-container {
+	background: var(--color-surface);
+	border-color: var(--color-border);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 blockquote {
@@ -414,6 +464,17 @@ table {
 	border-radius: 8px;
 	overflow: hidden;
 	background: var(--color-surface);
+	min-width: fit-content;
+}
+
+.table-wrapper {
+	width: 100%;
+	overflow-x: auto;
+	margin-bottom: 1rem;
+}
+
+.table-wrapper table {
+	margin-bottom: 0;
 }
 
 thead {
@@ -445,25 +506,68 @@ tbody tr:hover {
 	transition: background-color 0.2s ease;
 }
 
-:root[data-theme='dark'] table,
-[data-radix-theme='dark'] table {
+:root[data-theme="dark"] table,
+[data-radix-theme="dark"] table {
 	border-color: var(--color-border);
 }
 
-:root[data-theme='dark'] th,
-[data-radix-theme='dark'] th {
+:root[data-theme="dark"] th,
+[data-radix-theme="dark"] th {
 	border-bottom-color: var(--color-border);
 	background: var(--color-surface-hover);
 }
 
-:root[data-theme='dark'] td,
-[data-radix-theme='dark'] td {
+:root[data-theme="dark"] td,
+[data-radix-theme="dark"] td {
 	border-bottom-color: var(--color-border);
 }
 
-:root[data-theme='dark'] tbody tr:hover,
-[data-radix-theme='dark'] tbody tr:hover {
+:root[data-theme="dark"] tbody tr:hover,
+[data-radix-theme="dark"] tbody tr:hover {
 	background: var(--color-surface-hover);
+}
+
+/* 詳しく見るボタン */
+.detail-button {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem 1rem;
+	margin-top: 0.5rem;
+	background: transparent;
+	border: 1px solid var(--color-accent);
+	border-radius: 8px;
+	color: var(--color-accent);
+	font-size: 0.875rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	font-family: inherit;
+	padding-left: 1.5rem;
+}
+
+.detail-button:hover {
+	background: var(--color-accent);
+	color: white;
+	box-shadow: 0 0 20px rgba(42, 55, 244, 0.3);
+}
+
+.detail-button:focus-visible {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 2px;
+}
+
+:root[data-theme="dark"] .detail-button,
+[data-radix-theme="dark"] .detail-button {
+	border-color: #8b9aff;
+	color: #8b9aff;
+}
+
+:root[data-theme="dark"] .detail-button:hover,
+[data-radix-theme="dark"] .detail-button:hover {
+	background: #8b9aff;
+	color: #0f0f1a;
+	box-shadow: 0 0 20px rgba(139, 154, 255, 0.5);
 }
 
 /* View transitions */

@@ -1,25 +1,25 @@
 <script lang="ts">
-	import { isValidLanguage, type SupportedLanguage } from '$lib/i18n';
-	import { goto } from '$app/navigation';
-	import { browser } from '$app/environment';
+import { isValidLanguage, type SupportedLanguage } from "$lib/i18n";
+import { goto } from "$app/navigation";
+import { browser } from "$app/environment";
 
-	let { currentLang }: { currentLang: SupportedLanguage } = $props();
+let { currentLang }: { currentLang: SupportedLanguage } = $props();
 
-	const languages: { code: SupportedLanguage; label: string }[] = [
-		{ code: 'jp', label: 'JA' },
-		{ code: 'en', label: 'EN' }
-	];
+const languages: { code: SupportedLanguage; label: string }[] = [
+	{ code: "jp", label: "JA" },
+	{ code: "en", label: "EN" },
+];
 
-	function switchLanguage(lang: SupportedLanguage) {
-		if (lang === currentLang) return;
+function switchLanguage(lang: SupportedLanguage) {
+	if (lang === currentLang) return;
 
-		if (!browser) return;
+	if (!browser) return;
 
-		const currentPath = window.location.pathname;
-		const pathWithoutLang = currentPath.replace(/^\/[^/]+/, '');
-		const newPath = `/${lang}${pathWithoutLang === '/' ? '' : pathWithoutLang}`;
-		goto(newPath);
-	}
+	const currentPath = window.location.pathname;
+	const pathWithoutLang = currentPath.replace(/^\/[^/]+/, "");
+	const newPath = `/${lang}${pathWithoutLang === "/" ? "" : pathWithoutLang}`;
+	goto(newPath);
+}
 </script>
 
 <nav style="display: flex; gap: 0.25rem; align-items: center;">

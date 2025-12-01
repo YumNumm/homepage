@@ -1,8 +1,6 @@
 <script lang="ts">
-  let {
-    label,
-    backgroundColor,
-  }: { label: string; backgroundColor?: string } = $props();
+let { label, backgroundColor }: { label: string; backgroundColor?: string } =
+	$props();
 </script>
 
 <span

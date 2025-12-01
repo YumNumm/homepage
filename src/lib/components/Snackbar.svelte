@@ -1,20 +1,21 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+import { onMount } from "svelte";
 
-	let { message, duration = 1500 }: { message: string; duration?: number } = $props();
+let { message, duration = 1500 }: { message: string; duration?: number } =
+	$props();
 
-	let fading = $state(false);
+let fading = $state(false);
 
-	onMount(() => {
-		// フェードアウト開始
-		const fadeTimer = setTimeout(() => {
-			fading = true;
-		}, duration);
+onMount(() => {
+	// フェードアウト開始
+	const fadeTimer = setTimeout(() => {
+		fading = true;
+	}, duration);
 
-		return () => {
-			clearTimeout(fadeTimer);
-		};
-	});
+	return () => {
+		clearTimeout(fadeTimer);
+	};
+});
 </script>
 
 <div

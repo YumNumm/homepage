@@ -48,7 +48,9 @@ const config = {
               lang,
               theme: "github-dark-high-contrast",
               transformers: [
-                transformerTwoslash(),
+                transformerTwoslash({
+                  renderer: rendererRich(),
+                }),
                 transformerColorizedBrackets(),
               ],
             })
@@ -60,8 +62,11 @@ const config = {
     }),
   ],
 
-	kit: {
+  kit: {
     adapter: adapter(),
+    prerender: {
+      handleUnseenRoutes: "ignore",
+    },
   },
 };
 

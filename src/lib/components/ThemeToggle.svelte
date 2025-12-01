@@ -1,18 +1,18 @@
 <script lang="ts">
-	import { themeStore } from '$lib/stores/theme';
-	import { onMount } from 'svelte';
+import { themeStore } from "$lib/stores/theme";
+import { onMount } from "svelte";
 
-	let theme = $state(themeStore.theme);
+let theme = $state(themeStore.theme);
 
-	onMount(() => {
-		themeStore.init();
-		theme = themeStore.theme;
-	});
+onMount(() => {
+	themeStore.init();
+	theme = themeStore.theme;
+});
 
-	function toggleTheme() {
-		themeStore.toggle();
-		theme = themeStore.theme;
-	}
+function toggleTheme() {
+	themeStore.toggle();
+	theme = themeStore.theme;
+}
 </script>
 
 <button

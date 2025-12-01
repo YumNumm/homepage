@@ -30,7 +30,7 @@ async function getPost(slug: string): Promise<Post> {
   const paths = import.meta.glob("/src/content/blog/**/*", { eager: true });
   const post = paths[`/src/content/blog/${slug}.svx`];
   console.log(post);
-  return post;
+  return post as Post;
 }
 
 export type HonoBindings = Partial<

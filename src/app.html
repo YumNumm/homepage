@@ -2,7 +2,7 @@
 <html lang="en" style="height: 100%; overflow: hidden">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <script>
       (function () {
         const THEME_STORAGE_KEY = "theme";
@@ -32,10 +32,10 @@
         // CSSが読み込まれる前に背景色と色を設定
         const isDark = theme === "dark";
         if (isDark) {
-          document.documentElement.style.backgroundColor = "#050010";
+          document.documentElement.style.backgroundColor = "#0B192C";
           document.documentElement.style.color = "#d0d1e7";
         } else {
-          document.documentElement.style.backgroundColor = "#e0e1f0";
+          document.documentElement.style.backgroundColor = "#E4F2FF";
           document.documentElement.style.color = "#070019";
         }
         document.body.style.backgroundColor = "transparent";
@@ -60,12 +60,12 @@
       /* CSSが読み込まれる前に基本的なスタイルを適用 */
       html[data-theme="dark"],
       html[data-radix-theme="dark"] {
-        background-color: #050010;
+        background-color: #0B192C;
         color: #d0d1e7;
       }
       html[data-theme="light"],
       html[data-radix-theme="light"] {
-        background-color: #e0e1f0;
+        background-color: #E4F2FF;
         color: #070019;
       }
       body {
