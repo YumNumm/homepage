@@ -6,6 +6,7 @@ import { escapeSvelte, mdsvex } from "mdsvex";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePresetMinify from "rehype-preset-minify";
 import rehypeSlug from "rehype-slug";
+import remarkBreaks from "remark-breaks";
 import { createHighlighter } from "shiki";
 import {
 	createCodeBlockHtml,
@@ -27,7 +28,7 @@ const config = {
 			smartypants: {
 				dashes: "oldschool",
 			},
-			remarkPlugins: [],
+			remarkPlugins: [remarkBreaks],
 			rehypePlugins: [
 				rehypeSlug,
 				[
