@@ -314,7 +314,7 @@ pre code {
 .shiki,
 .code-block-content pre.shiki {
 	overflow-x: auto;
-	overflow-y: visible !important;
+	overflow-y: visible;
 }
 
 .code-block-wrapper {

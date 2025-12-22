@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <script>
-      (function () {
+      (() => {
         const THEME_STORAGE_KEY = "theme";
         let theme = "light";
 
@@ -18,7 +18,7 @@
             ).matches;
             theme = prefersDark ? "dark" : "light";
           }
-        } catch (e) {
+        } catch (_e) {
           // localStorage が利用できない場合のフォールバック
           const prefersDark = window.matchMedia(
             "(prefers-color-scheme: dark)"
@@ -76,37 +76,37 @@
       /* Header styles */
       html[data-theme="dark"] header,
       html[data-radix-theme="dark"] header {
-        background-color: #0f0f1a !important;
-        border-bottom-color: #34384b !important;
+        background-color: #0f0f1a;
+        border-bottom-color: #34384b;
       }
       html[data-theme="light"] header,
       html[data-radix-theme="light"] header {
-        background-color: #ffffff !important;
-        border-bottom-color: #e0e0e3 !important;
+        background-color: #ffffff;
+        border-bottom-color: #e0e0e3;
       }
       /* Table styles */
       html[data-theme="dark"] table,
       html[data-radix-theme="dark"] table {
-        background-color: #0f0f1a !important;
-        border-color: #34384b !important;
+        background-color: #0f0f1a;
+        border-color: #34384b;
       }
       html[data-theme="light"] table,
       html[data-radix-theme="light"] table {
-        background-color: #ffffff !important;
-        border-color: #e0e0e3 !important;
+        background-color: #ffffff;
+        border-color: #e0e0e3;
       }
       /* Button styles */
       html[data-theme="dark"] button,
       html[data-radix-theme="dark"] button {
-        background-color: #0f0f1a !important;
-        border-color: #34384b !important;
-        color: #d0d1e7 !important;
+        background-color: #0f0f1a;
+        border-color: #34384b;
+        color: #d0d1e7;
       }
       html[data-theme="light"] button,
       html[data-radix-theme="light"] button {
-        background-color: #ffffff !important;
-        border-color: #e0e0e3 !important;
-        color: #070019 !important;
+        background-color: #ffffff;
+        border-color: #e0e0e3;
+        color: #070019;
       }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />

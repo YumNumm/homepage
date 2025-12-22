@@ -1,8 +1,9 @@
 ---
-title: "Sample"
+title: "さんぷる! これはサンプル!"
 date: "2025-11-28"
 tags: ["sample"]
 published: true
+description: "こんにちは!! こんにちは!! TypeScriptとDartのコードを書いてみます〜〜 グヘヘ!"
 ---
 
 ## Test

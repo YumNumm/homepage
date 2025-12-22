@@ -1,8 +1,8 @@
-import type { PageLoad } from "./$types";
-import type { Post } from "$lib/api/models/post";
 import type { Component } from "svelte";
 import * as v from "valibot";
+import type { Post } from "$lib/api/models/post";
 import { PostSchema } from "$lib/api/models/post";
+import type { PageLoad } from "./$types";
 
 export const prerender = true;
 
@@ -17,10 +17,10 @@ export const load: PageLoad = async () => {
 
 	for (const path in paths) {
 		const file = paths[path];
+		// /src/content/blog/ からの相対パスをslugとして使用（階層構造に対応）
 		const slug = path
-			.split("/")
-			.at(-1)
-			?.replace(/\.(md|svx)$/, "");
+			.replace("/src/content/blog/", "")
+			.replace(/\.(md|svx)$/, "");
 
 		if (file && typeof file === "object" && "metadata" in file && slug) {
 			const metadata = file.metadata as Omit<Post, "slug">;

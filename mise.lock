@@ -5,3 +5,4 @@ backend = "core:node"
 [[tools.pnpm]]
 version = "10.23.0"
 backend = "aqua:pnpm/pnpm"
+"platforms.macos-arm64" = { checksum = "sha256:aebc1cf4550d8ee3010a6cb42aeefc094ff2d1904fc0f59e9c906351a6b0f620", url = "https://github.com/pnpm/pnpm/releases/download/v10.23.0/pnpm-macos-arm64"}

@@ -1,9 +1,9 @@
 import { error } from "@sveltejs/kit";
-import type { PageLoad } from "./$types";
-import type { Post } from "$lib/api/models/post";
 import type { Component } from "svelte";
 import * as v from "valibot";
+import type { Post } from "$lib/api/models/post";
 import { PostSchema } from "$lib/api/models/post";
+import type { PageLoad } from "./$types";
 
 export const prerender = true;
 
@@ -18,10 +18,10 @@ export async function entries() {
 
 	for (const path in paths) {
 		const file = paths[path];
+		// /src/content/blog/ からの相対パスをslugとして使用（階層構造に対応）
 		const slug = path
-			.split("/")
-			.at(-1)
-			?.replace(/\.(md|svx)$/, "");
+			.replace("/src/content/blog/", "")
+			.replace(/\.(md|svx)$/, "");
 
 		if (file && typeof file === "object" && "metadata" in file && slug) {
 			const metadata = file.metadata as Omit<Post, "slug">;
@@ -48,8 +48,11 @@ export const load: PageLoad = async (event) => {
 	}>("/src/content/blog/**/*.{svx,md}", {
 		eager: true,
 	});
+
+	// 階層構造に対応したファイル検索
 	const postPath = `/src/content/blog/${slug}.svx`;
-	const postFile = paths[postPath] || paths[`/src/content/blog/${slug}.md`];
+	const postPathMd = `/src/content/blog/${slug}.md`;
+	const postFile = paths[postPath] || paths[postPathMd];
 
 	if (!postFile || typeof postFile !== "object" || !("metadata" in postFile)) {
 		throw error(404, "Post not found");

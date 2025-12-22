@@ -18,6 +18,16 @@
 # <div id="name"><img src="/favicon.jpg" alt="favicon" style="width: 2em; height: 2em; border-radius: 50%;" /> Ryotaro Onoue</div>
 
 <style>
+  /* 名前のh1は中央揃えにするため、#マークを非表示にしてパディングをリセット */
+  :global(h1:has(#name)) {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  :global(h1:has(#name))::before {
+    display: none;
+  }
+
   #name {
     display: flex;
     flex-direction: column;
@@ -57,9 +67,18 @@
 
 ## Skills
 
-- Flutter
-- Dart
-- TypeScript (Cloudflare Workersなど)
+- Mobile App
+  - Flutter
+  - Dart
+- Server
+  - TypeScript
+- Infrastructure
+  - Terraform
+  - Docker
+  - Cloudflare
+    - Cloudflare Workers
+    - Cloudflare Durable Objects
+    - Cloudflare KV/R2/D1
 
 ---
 
@@ -110,7 +129,35 @@
 
 ---
 
+## Hobbies & Private Activities
+
+### 🖥️ 自宅サーバ・ネットワーク
+
+VPS代に嫌気が差して、自宅ラックサーバを購入。FUJITSU RX2530 M4 (40C80T, 128GB RAM) を中心に、LXDコンテナ仮想化でホームラボを構築。Grafana/Prometheus/OpenTelemetryベースの監視基盤も運用中。
+
+<button class="detail-button" onclick={() => openDetail('homelab')}>
+  <span>詳しく見る</span>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M5 12h14M12 5l7 7-7 7"/>
+  </svg>
+</button>
+
+### 📷 カメラ
+
+SONY α7C IIを購入し、写真・動画撮影を楽しんでいます。スマホでは撮れないボケ感と解像度に感動。旅行やイベントの思い出をキレイに残すことを目指しています。
+
+<button class="detail-button" onclick={() => openDetail('camera')}>
+  <span>詳しく見る</span>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M5 12h14M12 5l7 7-7 7"/>
+  </svg>
+</button>
+
+---
+
 ## Speaking Engagements
+
+### 2025
 
 | Date | Title | Event |
 |------|-------|-------|
@@ -119,10 +166,20 @@
 | 2025.06.20 | [Terraform+cloud-initで自宅サーバのLXDをIaCするお話](https://speakerdeck.com/yumnumm/terraform-plus-cloud-initdezi-zhai-sabanolxdwoiacsuruohua) | ゆるく自動化を学ぶ会 |
 | 2025.04.26 | [FlutterKaigi 2024における開発チームの取り組み と 2025への展望](https://speakerdeck.com/yumnumm/flutterkaigi-2024niokerukai-fa-timunoqu-rizu-mi-to-2025henozhan-wang) | FlutterKaigi mini #4 @Kyoto |
 | 2025.04.06 | [Dart WebAssemblyを使ったWeb API on Cloudflare Workers](https://speakerdeck.com/yumnumm/dart-webassemblywoshi-tutaweb-api-on-cloudflare-workers-688dba71-50f5-46c4-bddd-14c474790e7c) | Flutter Tokyo #6 |
+
+### 2024
+
+| Date | Title | Event |
+|------|-------|-------|
 | 2024.07.12 | [Apple Walletでパスを作るお話](https://speakerdeck.com/yumnumm/apple-walletdepasuwozuo-ruohua) | Money Forward×YUMEMI.grow 自称若手モバイルエンジニアLT会 |
 | 2024.05.21 | [私がやってきたアウトプット集](https://speakerdeck.com/yumnumm/si-gayatutekitaautopututoji) | アウトプットとインプットを継続する秘訣LT会 |
 | 2024.05.16 | [俺/私のこだわりデスク大大大自慢LT大会](https://speakerdeck.com/yumnumm/si-nokodawaridesukuda-da-da-zi-man-ltda-hui-ltfes-number-12) | LTFes #12 俺/私のこだわりデスク大大大自慢LT大会 |
 | 2024.05.13 | [EQMonitorのご紹介](https://speakerdeck.com/yumnumm/shi-shi-yi-wai-dezuo-cheng-sitapurodakutonozi-man-da-hui) | LTFes #6 仕事以外で作成したプロダクトの自慢大会 |
+
+### 2023
+
+| Date | Title | Event |
+|------|-------|-------|
 | 2023.12.19 | [Cloudflare Workers でプリントシール機の画像共有システムを制作したお話 @serverlessF](https://speakerdeck.com/yumnumm/cloudflare-workers-depurintosiruji-nohua-xiang-gong-you-sisutemuwozhi-zuo-sitaohua-at-serverlessf) | Serverless Frontend Meetup #4 |
 | 2023.12.09 | [Flutter×Jetpack Compose相互運用](https://speakerdeck.com/yumnumm/flutter-x-jetpack-composenoxiang-hu-yun-yong-at-gdg-tokyo-2023) | GDG Tokyo |
 | 2023.11.10 | [DartによるBFF構築・運用〜Dart From × Melos〜 (共同登壇)](https://speakerdeck.com/yumnumm/dartniyorubffgou-zhu-yun-yong-dart-frog-x-melos) | FlutterKaigi 2023 |

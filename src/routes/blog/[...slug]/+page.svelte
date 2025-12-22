@@ -1,8 +1,40 @@
 <script lang="ts">
 import type { PageData } from "./$types";
 
-let { data }: { data: PageData } = $props();
+const { data }: { data: PageData } = $props();
+
+const siteUrl = "https://yumnumm.dev";
+const ogImageUrl = `${siteUrl}/og/blog/${data.post.slug}.png`;
+const pageUrl = `${siteUrl}/blog/${data.post.slug}`;
+const title = data.post.title;
+const description =
+	data.post.description || `${data.post.title} - もぐもぐのサイト`;
 </script>
+
+<svelte:head>
+	<title>{title} - もぐもぐのサイト</title>
+	<meta name="description" content={description} />
+
+	<!-- Open Graph -->
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={ogImageUrl} />
+	<meta property="og:url" content={pageUrl} />
+	<meta property="og:type" content="article" />
+	<meta property="og:site_name" content="もぐもぐのサイト" />
+	<meta property="article:published_time" content={data.post.date} />
+	{#if data.post.tags}
+		{#each data.post.tags as tag}
+			<meta property="article:tag" content={tag} />
+		{/each}
+	{/if}
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+	<meta name="twitter:image" content={ogImageUrl} />
+</svelte:head>
 
 <div style="margin-bottom: 2rem;">
   <a href="/blog">← ブログ一覧に戻る</a>
@@ -38,7 +70,7 @@ let { data }: { data: PageData } = $props();
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
     position: relative;
-    background: transparent;
+    background: var(--color-background-start) !important;
   }
 
   .blog-header::after {
