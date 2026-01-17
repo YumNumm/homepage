@@ -221,10 +221,15 @@ onMount(() => {
 
 <Theme>
 	<header class="glass-header">
-		<nav>
-			<a href="/" style="margin-right: 1rem;">Home</a>
-			<a href="/blog" style="margin-right: 1rem;">Blog</a>
-		</nav>
+		<div class="header-left">
+			<a href="/" class="brand-link">
+				<img src={favicon} alt="もぐもぐ" class="brand-icon" />
+				<span class="brand-text">もぐもぐ</span>
+			</a>
+			<nav>
+				<a href="/blog" class="nav-link">Blog</a>
+			</nav>
+		</div>
 		<div style="display: flex; gap: 1rem; align-items: center;">
 			<ThemeToggle />
 		</div>
@@ -249,7 +254,7 @@ onMount(() => {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 1rem 2rem;
+		padding: 0.75rem 2rem;
 		background: rgba(255, 255, 255, 0.3);
 		backdrop-filter: blur(10px) saturate(180%);
 		-webkit-backdrop-filter: blur(10px) saturate(180%);
@@ -260,6 +265,87 @@ onMount(() => {
 	[data-radix-theme='dark'] .glass-header {
 		background: rgba(5, 7, 43, 0.3);
 		border-bottom-color: rgba(255, 255, 255, 0.1);
+	}
+
+	.header-left {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	.brand-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		text-decoration: none;
+		padding: 0 4px;
+		border-radius: 0.5rem;
+		transition: background-color 0.2s ease;
+		color: inherit;
+		background-color: transparent;
+		width: fit-content;
+		height: fit-content;
+	}
+
+	.brand-link:hover {
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+
+	:root[data-theme='dark'] .brand-link,
+	[data-radix-theme='dark'] .brand-link {
+		background-color: transparent;
+		color: white;
+	}
+
+	:root[data-theme='dark'] .brand-link:hover,
+	[data-radix-theme='dark'] .brand-link:hover {
+		background-color: rgba(255, 255, 255, 0.12);
+	}
+
+	.brand-icon {
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		object-fit: cover;
+	}
+
+	.brand-text {
+		font-weight: 600;
+		font-size: 1.1rem;
+		color: inherit;
+	}
+
+	nav {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+	}
+
+	.nav-link {
+		text-decoration: none;
+		padding: 0.25rem 0.5rem;
+		border-radius: 0.5rem;
+		transition: background-color 0.2s ease, opacity 0.2s ease;
+		color: inherit;
+		font-weight: 500;
+		opacity: 0.7;
+		background-color: transparent;
+	}
+
+	.nav-link:hover {
+		background-color: rgba(0, 0, 0, 0.1);
+		opacity: 1;
+	}
+
+	:root[data-theme='dark'] .nav-link,
+	[data-radix-theme='dark'] .nav-link {
+		background-color: transparent;
+	}
+
+	:root[data-theme='dark'] .nav-link:hover,
+	[data-radix-theme='dark'] .nav-link:hover {
+		background-color: rgba(255, 255, 255, 0.12);
 	}
 
 	.main-content {
