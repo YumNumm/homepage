@@ -23,7 +23,7 @@
 		"@shikijs/colorized-brackets": "^3.17.0",
 		"@shikijs/twoslash": "^3.17.0",
 		"@sveltejs/adapter-cloudflare": "^7.2.4",
-		"@sveltejs/kit": "^2.49.0",
+		"@sveltejs/kit": "^2.49.5",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
 		"@types/node": "^24.10.2",
 		"@types/react": "^19.2.7",
