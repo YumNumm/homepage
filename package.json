@@ -28,7 +28,7 @@
 		"@types/node": "^24.10.2",
 		"@types/react": "^19.2.7",
 		"gray-matter": "^4.0.3",
-		"hono": "^4.10.7",
+		"hono": "^4.11.4",
 		"mdsvex": "^0.12.6",
 		"playwright": "^1.57.0",
 		"rehype-autolink-headings": "^7.1.0",
