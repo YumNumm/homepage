@@ -98,6 +98,8 @@ jobs:
     outputs:
       deployment_url: ${{ steps.extract-deployment-url.outputs.DEPLOYMENT_URL }}
       logs: ${{ steps.extract-logs.outputs.LOG }}
+    env:
+      CLOUDFLARE_ACCOUNT_ID: "4270d8a14dfc1f866629099a788c93e2"
     steps:
       # https://github.com/actions/checkout
       - name: Checkout
@@ -121,6 +123,8 @@ jobs:
       - name: Deploy website (Preview)
         if: ${{ needs.define-environment.outputs.environment != 'production' }}
         id: deploy-preview
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
           {
             echo "LOG<<EOL"
@@ -131,6 +135,8 @@ jobs:
       - name: Deploy website (Production)
         if: ${{ needs.define-environment.outputs.environment == 'production' }}
         id: deploy-production
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
           {
             echo "LOG<<EOL"
