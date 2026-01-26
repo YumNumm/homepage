@@ -51,7 +51,7 @@
 		"@radix-ui/themes": "^3.2.1",
 		"@resvg/resvg-wasm": "^2.6.2",
 		"@shikijs/rehype": "^3.21.0",
-		"katex": "^0.16.27",
+		"katex": "^0.16.28",
 		"node-addon-api": "^8.5.0",
 		"node-gyp": "^12.1.0",
 		"rehype-katex": "^7.0.1",
