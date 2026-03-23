@@ -6,7 +6,6 @@ import { browser } from "$app/environment";
 import DetailModal from "$lib/components/DetailModal.svelte";
 import EQMonitorModal from "$lib/components/modals/EQMonitorModal.svelte";
 import HighschoolModal from "$lib/components/modals/HighschoolModal.svelte";
-import YumemiModal from "$lib/components/modals/YumemiModal.svelte";
 import type { PageData } from "./$types";
 
 let { data }: { data: PageData } = $props();
@@ -57,9 +56,6 @@ const detailContents = {
 	highschool: {
 		title: "横浜市立横浜サイエンスフロンティア高等学校",
 	},
-	yumemi: {
-		title: "YUMEMI Inc.",
-	},
 } as const;
 
 type DetailKey = keyof typeof detailContents;
@@ -84,8 +80,6 @@ const isValidDetail = (detail: string | null): detail is DetailKey => {
 			<EQMonitorModal />
 		{:else if currentDetail === 'highschool'}
 			<HighschoolModal />
-		{:else if currentDetail === 'yumemi'}
-			<YumemiModal />
 		{/if}
 	</DetailModal>
 {/if}

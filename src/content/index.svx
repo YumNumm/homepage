@@ -89,13 +89,6 @@
 - Flutterエンジニアとして、2023年4月に新卒入社。
   Flutterマイスターエンジニアとして従事。
 
-<button class="detail-button" onclick={() => openDetail('yumemi')}>
-  <span>詳しく見る</span>
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <path d="M5 12h14M12 5l7 7-7 7"/>
-  </svg>
-</button>
-
 ### 2025.12- Accenture Japan Ltd
 - 2025.12 ~: Product Enginner Accosiate Manager
 
