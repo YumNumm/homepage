@@ -106,7 +106,7 @@ jobs:
         env:
           TZ: Asia/Tokyo
         run: |
-          echo "timestamp=$(date -Iseconds )" >> $GITHUB_OUTPUT
+          echo "TIMESTAMP=$(date -Iseconds)" >> $GITHUB_OUTPUT
 
       - name: Extract logs
         id: extract-logs
