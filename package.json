@@ -38,6 +38,7 @@
 	"devDependencies": {
 		"@cloudflare/vite-plugin": "^1.30.0",
 		"@cloudflare/workers-types": "^4.20260317.1",
+		"@fontsource/noto-sans-jp": "^5.2.9",
 		"@shikijs/colorized-brackets": "^3.21.0",
 		"@shikijs/twoslash": "^3.21.0",
 		"@types/react": "^19.2.14",

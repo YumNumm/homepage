@@ -191,50 +191,12 @@ export function HomePage() {
 				128GB RAM)
 				を中心に、LXDコンテナ仮想化でホームラボを構築。Grafana/Prometheus/OpenTelemetryベースの監視基盤も運用中。
 			</p>
-			<button
-				type="button"
-				className="detail-button"
-				onClick={() => openModal("homelab")}
-			>
-				<span>詳しく見る</span>
-				<svg
-					width="16"
-					height="16"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					strokeWidth="2"
-					aria-hidden
-				>
-					<title>詳しく見る</title>
-					<path d="M5 12h14M12 5l7 7-7 7" />
-				</svg>
-			</button>
 
 			<h3>📷 カメラ</h3>
 			<p>
 				SONY α7C
 				IIを購入し、写真・動画撮影を楽しんでいます。スマホでは撮れないボケ感と解像度に感動。旅行やイベントの思い出をキレイに残すことを目指しています。
 			</p>
-			<button
-				type="button"
-				className="detail-button"
-				onClick={() => openModal("camera")}
-			>
-				<span>詳しく見る</span>
-				<svg
-					width="16"
-					height="16"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					strokeWidth="2"
-					aria-hidden
-				>
-					<title>詳しく見る</title>
-					<path d="M5 12h14M12 5l7 7-7 7" />
-				</svg>
-			</button>
 
 			<hr />
 

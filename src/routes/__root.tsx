@@ -24,13 +24,7 @@ export const Route = createRootRoute({
 				content: "width=device-width, initial-scale=1, viewport-fit=cover",
 			},
 		],
-		links: [
-			{ rel: "icon", type: "image/jpeg", href: "/favicon.jpg" },
-			{
-				rel: "stylesheet",
-				href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap",
-			},
-		],
+		links: [{ rel: "icon", type: "image/jpeg", href: "/favicon.jpg" }],
 	}),
 	component: RootLayout,
 });

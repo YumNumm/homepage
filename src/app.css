@@ -1,7 +1,9 @@
 @import "@fontsource/google-sans-code";
+@import "@fontsource/noto-sans-jp";
 
+/* 英字: Google Sans Code（Google Sans Mono 相当の等幅） / 日本語: Noto Sans JP */
 :root {
-	font-family: "JetBrains Mono", "Noto Sans JP", monospace;
+	font-family: "Google Sans Code", "Noto Sans JP", sans-serif;
 	font-variant-ligatures: common-ligatures;
 	--scrollbar-thumb: #333;
 }
@@ -70,7 +72,7 @@ main {
 }
 
 html {
-	font-family: "JetBrains Mono", "Noto Sans JP", monospace;
+	font-family: "Google Sans Code", "Noto Sans JP", sans-serif;
 	font-variant-ligatures: common-ligatures;
 	height: 100%;
 	/* デフォルトはライトモードの背景 */
@@ -96,7 +98,7 @@ html {
 }
 
 body {
-	font-family: "JetBrains Mono", "Noto Sans JP", monospace;
+	font-family: "Google Sans Code", "Noto Sans JP", sans-serif;
 	font-variant-ligatures: common-ligatures;
 	line-height: 1.6;
 	color: var(--color-text);
@@ -718,6 +720,7 @@ nav {
 	border-radius: 16px;
 	border: 1px solid var(--color-border);
 	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+	isolation: isolate;
 }
 
 .modal-header {
@@ -727,9 +730,7 @@ nav {
 	align-items: center;
 	justify-content: space-between;
 	padding: 1.5rem 2rem;
-	background: color-mix(in srgb, var(--color-surface) 70%, transparent);
-	backdrop-filter: blur(12px);
-	-webkit-backdrop-filter: blur(12px);
+	background: var(--color-surface);
 	border-bottom: 1px solid var(--color-border);
 	border-radius: 16px 16px 0 0;
 	z-index: 1;
@@ -781,10 +782,12 @@ nav {
 
 .modal-body {
 	padding: 2rem;
+	background: var(--color-surface);
 }
 
 .modal-detail-content {
 	line-height: 1.8;
+	background: var(--color-surface);
 }
 
 .modal-detail-content h3 {
