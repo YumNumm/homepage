@@ -2,5 +2,18 @@
 	"debug.javascript.defaultRuntimeExecutable": {
 		"pwa-node": "~/.local/share/mise/shims/node"
 	},
-	"mise.configureExtensionsAutomatically": false
+	"mise.configureExtensionsAutomatically": false,
+	"editor.formatOnSave": true,
+	"[typescript]": {
+		"editor.defaultFormatter": "oxc.oxc-vscode"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "oxc.oxc-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "oxc.oxc-vscode"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "oxc.oxc-vscode"
+	}
 }
