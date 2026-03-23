@@ -1,11 +1,19 @@
 @import "@fontsource/google-sans-code";
 @import "@fontsource/noto-sans-jp";
 
-/* 英字: Google Sans Code（Google Sans Mono 相当の等幅） / 日本語: Noto Sans JP */
+/* 英字: Google Sans Code / 日本語: Noto Sans JP */
 :root {
 	font-family: "Google Sans Code", "Noto Sans JP", sans-serif;
 	font-variant-ligatures: common-ligatures;
 	--scrollbar-thumb: #333;
+}
+
+/* Radix Themes が --default-font-family でシステム UI フォントを指定するため揃える */
+.radix-themes {
+	--default-font-family: "Google Sans Code", "Noto Sans JP", sans-serif;
+	--heading-font-family: "Google Sans Code", "Noto Sans JP", sans-serif;
+	--strong-font-family: "Google Sans Code", "Noto Sans JP", sans-serif;
+	--code-font-family: "Google Sans Code", "Noto Sans JP", ui-monospace, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -858,26 +866,6 @@ nav {
 	background: #6b77ff;
 }
 
-@media (max-width: 640px) {
-	.modal-content {
-		max-height: 90vh;
-		border-radius: 12px;
-	}
-
-	.modal-header {
-		padding: 1rem 1.5rem;
-		border-radius: 12px 12px 0 0;
-	}
-
-	.modal-header h2 {
-		font-size: 1.25rem;
-	}
-
-	.modal-body {
-		padding: 1.5rem;
-	}
-}
-
 /* Blog */
 .post-list {
 	list-style: none;
@@ -967,6 +955,22 @@ nav {
 	color: var(--color-text);
 }
 
+/* Home */
+.project-title-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.project-title-row img {
+	margin: 0;
+}
+
+.speaking-engagements-tables td a {
+	word-break: break-word;
+}
+
 /* Home profile */
 .profile-info {
 	text-align: center;
@@ -991,6 +995,110 @@ h1:has(#name)::before {
 
 #name img {
 	margin-bottom: 0.25rem;
+}
+
+/* モバイル: 余白・字下げ・ヘッダーを詰める */
+@media (max-width: 640px) {
+	html {
+		scrollbar-gutter: auto;
+	}
+
+	.main-content {
+		top: 56px;
+		padding: 1rem;
+		padding-top: calc(1rem + env(safe-area-inset-top));
+		padding-left: calc(1rem + env(safe-area-inset-left));
+		padding-right: calc(1rem + env(safe-area-inset-right));
+		padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+	}
+
+	.glass-header {
+		padding: 0.5rem 0.75rem;
+		align-items: flex-start;
+		row-gap: 0.25rem;
+	}
+
+	.header-left {
+		flex-wrap: wrap;
+		gap: 0.5rem 1rem;
+		min-width: 0;
+	}
+
+	.brand-text {
+		font-size: 1rem;
+	}
+
+	h1 {
+		font-size: clamp(1.35rem, 5vw, 2rem);
+	}
+
+	h2 {
+		font-size: 1.25rem;
+		margin-top: 1.5rem;
+	}
+
+	h3 {
+		font-size: 1.05rem;
+	}
+
+	p {
+		padding-left: 0;
+		font-size: 0.9rem;
+	}
+
+	ul,
+	ol {
+		padding-left: 1.5rem;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		padding-left: 1rem;
+	}
+
+	h1:has(#name) {
+		padding-left: 0;
+	}
+
+	hr {
+		margin: 1.25rem 0;
+	}
+
+	table {
+		font-size: 0.8125rem;
+	}
+
+	th,
+	td {
+		padding: 0.4rem 0.5rem;
+	}
+
+	.modal-backdrop {
+		padding: 0.5rem;
+		align-items: flex-end;
+	}
+
+	.modal-content {
+		max-height: min(92dvh, 100%);
+		border-radius: 12px 12px 0 0;
+	}
+
+	.modal-header {
+		padding: 1rem 1rem;
+		border-radius: 12px 12px 0 0;
+	}
+
+	.modal-header h2 {
+		font-size: 1.25rem;
+	}
+
+	.modal-body {
+		padding: 1.25rem 1rem;
+	}
 }
 
 /* View transitions */
