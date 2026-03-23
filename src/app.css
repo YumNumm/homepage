@@ -1,5 +1,6 @@
 @import "@fontsource/google-sans-code";
 @import "@fontsource/noto-sans-jp";
+@import "@fontsource-variable/google-sans-flex";
 
 /* 英字: Google Sans Code / 日本語: Noto Sans JP */
 :root {
@@ -972,6 +973,22 @@ nav {
 }
 
 /* Home profile */
+/* Google Fonts の推奨に沿う（Fontsource は @font-face 名が Google Sans Flex Variable） */
+.profile-page h1,
+.profile-page h2 {
+	font-family: "Google Sans Flex", "Google Sans Flex Variable", "Noto Sans JP",
+		sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 600;
+	font-style: normal;
+	font-variation-settings:
+		"wght" 700,
+		"slnt" 0,
+		"wdth" 125,
+		"GRAD" 100,
+		"ROND" 100;
+}
+
 .profile-info {
 	text-align: center;
 	padding-left: 0 !important;

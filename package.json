@@ -17,6 +17,7 @@
 		"format:check": "oxfmt . --check"
 	},
 	"dependencies": {
+		"@fontsource-variable/google-sans-flex": "^5.2.1",
 		"@fontsource/google-sans-code": "^5.2.3",
 		"@hono/valibot-validator": "^0.6.1",
 		"@radix-ui/themes": "^3.2.1",

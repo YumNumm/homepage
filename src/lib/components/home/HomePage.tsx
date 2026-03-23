@@ -45,139 +45,141 @@ export function HomePage() {
 
 	return (
 		<>
-			<h1>
-				<div id="name">
-					<img
-						src="/favicon.jpg"
-						alt="favicon"
-						style={{ width: "2em", height: "2em", borderRadius: "50%" }}
-					/>
-					Ryotaro Onoue
+			<div className="profile-page">
+				<h1>
+					<div id="name">
+						<img
+							src="/favicon.jpg"
+							alt="favicon"
+							style={{ width: "2em", height: "2em", borderRadius: "50%" }}
+						/>
+						Ryotaro Onoue
+					</div>
+				</h1>
+
+				<div className="profile-info">
+					<p>
+						尾上 遼太朗 (おのうえ りょうたろう, aka. <strong>もぐもぐ</strong>)
+					</p>
+					<p>2004年9月17日生まれ ({age}歳)</p>
+					<p>
+						<a href="mailto:admin@yumnumm.dev">Mail</a>・
+						<a href="https://github.com/yumnumm">GitHub</a>・
+						<a href="https://linkedin.com/in/yumnumm">LinkedIn</a>・
+						<a href="https://x.com/yumnumm">X</a>
+					</p>
 				</div>
-			</h1>
 
-			<div className="profile-info">
-				<p>
-					尾上 遼太朗 (おのうえ りょうたろう, aka. <strong>もぐもぐ</strong>)
-				</p>
-				<p>2004年9月17日生まれ ({age}歳)</p>
-				<p>
-					<a href="mailto:admin@yumnumm.dev">Mail</a>・
-					<a href="https://github.com/yumnumm">GitHub</a>・
-					<a href="https://linkedin.com/in/yumnumm">LinkedIn</a>・
-					<a href="https://x.com/yumnumm">X</a>
-				</p>
-			</div>
+				<br />
 
-			<br />
+				<hr />
 
-			<hr />
+				<h2>Skills</h2>
+				<ul>
+					<li>
+						Mobile App
+						<ul>
+							<li>Flutter</li>
+							<li>Dart</li>
+						</ul>
+					</li>
+					<li>
+						Server
+						<ul>
+							<li>TypeScript</li>
+						</ul>
+					</li>
+					<li>
+						Infrastructure
+						<ul>
+							<li>Terraform</li>
+							<li>Docker</li>
+							<li>
+								Cloudflare
+								<ul>
+									<li>Cloudflare Workers</li>
+									<li>Cloudflare Durable Objects</li>
+									<li>Cloudflare KV/R2/D1</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
 
-			<h2>Skills</h2>
-			<ul>
-				<li>
-					Mobile App
-					<ul>
-						<li>Flutter</li>
-						<li>Dart</li>
-					</ul>
-				</li>
-				<li>
-					Server
-					<ul>
-						<li>TypeScript</li>
-					</ul>
-				</li>
-				<li>
-					Infrastructure
-					<ul>
-						<li>Terraform</li>
-						<li>Docker</li>
-						<li>
-							Cloudflare
-							<ul>
-								<li>Cloudflare Workers</li>
-								<li>Cloudflare Durable Objects</li>
-								<li>Cloudflare KV/R2/D1</li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-			</ul>
+				<hr />
 
-			<hr />
+				<h2>Experience</h2>
+				<h3>2023.4 ~ 2025.11: YUMEMI Inc.</h3>
+				<ul>
+					<li>
+						Flutterエンジニアとして、2023年4月に新卒入社。
+						Flutterマイスターエンジニアとして従事。
+					</li>
+				</ul>
+				<h3>2025.12- Accenture Japan Ltd</h3>
+				<ul>
+					<li>2025.12 ~: Product Enginner Accosiate Manager</li>
+				</ul>
 
-			<h2>Experience</h2>
-			<h3>2023.4 ~ 2025.11: YUMEMI Inc.</h3>
-			<ul>
-				<li>
-					Flutterエンジニアとして、2023年4月に新卒入社。
-					Flutterマイスターエンジニアとして従事。
-				</li>
-			</ul>
-			<h3>2025.12- Accenture Japan Ltd</h3>
-			<ul>
-				<li>2025.12 ~: Product Enginner Accosiate Manager</li>
-			</ul>
+				<hr />
 
-			<hr />
+				<h2>Education</h2>
+				<h3>2020.4 ~ 2023.3: 横浜市立横浜サイエンスフロンティア高等学校</h3>
 
-			<h2>Education</h2>
-			<h3>2020.4 ~ 2023.3: 横浜市立横浜サイエンスフロンティア高等学校</h3>
+				<hr />
 
-			<hr />
-
-			<h2>Projects</h2>
-			<h3 className="project-title-row">
-				<img
-					src="/EQMonitor_icon.webp"
-					alt="EQMonitor Icon"
-					width={50}
-					height={50}
-				/>
-				<strong>EQMonitor</strong>
-			</h3>
-			<p>地震速報アプリケーション</p>
-			<button
-				type="button"
-				className="detail-button"
-				onClick={() => openModal("eqmonitor")}
-			>
-				<span>詳しく見る</span>
-				<svg
-					width="16"
-					height="16"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					strokeWidth="2"
-					aria-hidden
+				<h2>Projects</h2>
+				<h3 className="project-title-row">
+					<img
+						src="/EQMonitor_icon.webp"
+						alt="EQMonitor Icon"
+						width={50}
+						height={50}
+					/>
+					<strong>EQMonitor</strong>
+				</h3>
+				<p>地震速報アプリケーション</p>
+				<button
+					type="button"
+					className="detail-button"
+					onClick={() => openModal("eqmonitor")}
 				>
-					<title>詳しく見る</title>
-					<path d="M5 12h14M12 5l7 7-7 7" />
-				</svg>
-			</button>
+					<span>詳しく見る</span>
+					<svg
+						width="16"
+						height="16"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						strokeWidth="2"
+						aria-hidden
+					>
+						<title>詳しく見る</title>
+						<path d="M5 12h14M12 5l7 7-7 7" />
+					</svg>
+				</button>
 
-			<hr />
+				<hr />
 
-			<h2>Hobbies &amp; Private Activities</h2>
-			<h3>🖥️ 自宅サーバ・ネットワーク</h3>
-			<p>
-				VPS代に嫌気が差して、自宅ラックサーバを購入。FUJITSU RX2530 M4 (40C80T,
-				128GB RAM)
-				を中心に、LXDコンテナ仮想化でホームラボを構築。Grafana/Prometheus/OpenTelemetryベースの監視基盤も運用中。
-			</p>
+				<h2>Hobbies &amp; Private Activities</h2>
+				<h3>🖥️ 自宅サーバ・ネットワーク</h3>
+				<p>
+					VPS代に嫌気が差して、自宅ラックサーバを購入。FUJITSU RX2530 M4
+					(40C80T, 128GB RAM)
+					を中心に、LXDコンテナ仮想化でホームラボを構築。Grafana/Prometheus/OpenTelemetryベースの監視基盤も運用中。
+				</p>
 
-			<h3>📷 カメラ</h3>
-			<p>
-				SONY α7C
-				IIを購入し、写真・動画撮影を楽しんでいます。スマホでは撮れないボケ感と解像度に感動。旅行やイベントの思い出をキレイに残すことを目指しています。
-			</p>
+				<h3>📷 カメラ</h3>
+				<p>
+					SONY α7C
+					IIを購入し、写真・動画撮影を楽しんでいます。スマホでは撮れないボケ感と解像度に感動。旅行やイベントの思い出をキレイに残すことを目指しています。
+				</p>
 
-			<hr />
+				<hr />
 
-			<h2>Speaking Engagements</h2>
-			<SpeakingTables />
+				<h2>Speaking Engagements</h2>
+				<SpeakingTables />
+			</div>
 
 			{isDetailKey(detail) ? (
 				<DetailModal
