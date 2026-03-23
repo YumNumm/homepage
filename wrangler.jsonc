@@ -6,35 +6,31 @@
 	"routes": [
 		{
 			"pattern": "yumnumm.dev",
-			"custom_domain": true
-		}
+			"custom_domain": true,
+		},
 	],
-	"main": ".svelte-kit/cloudflare/_worker.js",
+	"main": "src/server.ts",
 	"compatibility_flags": ["nodejs_als", "nodejs_compat"],
-	"assets": {
-		"binding": "ASSETS",
-		"directory": ".svelte-kit/cloudflare"
-	},
 	"rules": [
 		{
 			"type": "Data",
 			"globs": ["**/*.jpg", "**/*.png", "**/*.webp"],
-			"fallthrough": true
+			"fallthrough": true,
 		},
 		{
 			"type": "CompiledWasm",
 			"globs": ["**/*.wasm"],
-			"fallthrough": true
-		}
+			"fallthrough": true,
+		},
 	],
 	"observability": {
 		"enabled": true,
 		"logs": {
-			"enabled": true
+			"enabled": true,
 		},
 		"traces": {
-			"enabled": true
-		}
+			"enabled": true,
+		},
 	},
-	"workers_dev": true
+	"workers_dev": true,
 }

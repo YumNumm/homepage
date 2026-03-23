@@ -2044,8 +2044,10 @@ declare var Request: {
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Request)
  */
-interface Request<CfHostMetadata = unknown, Cf = CfProperties<CfHostMetadata>>
-	extends Body {
+interface Request<
+	CfHostMetadata = unknown,
+	Cf = CfProperties<CfHostMetadata>,
+> extends Body {
 	/**
 	 * The **`clone()`** method of the Request interface creates a copy of the current `Request` object.
 	 *
@@ -2124,15 +2126,11 @@ interface RequestInit<Cf = CfProperties> {
 }
 type Service<
 	T extends
-		| (new (
-				...args: any[]
-		  ) => Rpc.WorkerEntrypointBranded)
+		| (new (...args: any[]) => Rpc.WorkerEntrypointBranded)
 		| Rpc.WorkerEntrypointBranded
 		| ExportedHandler<any, any, any>
 		| undefined = undefined,
-> = T extends new (
-	...args: any[]
-) => Rpc.WorkerEntrypointBranded
+> = T extends new (...args: any[]) => Rpc.WorkerEntrypointBranded
 	? Fetcher<InstanceType<T>>
 	: T extends Rpc.WorkerEntrypointBranded
 		? Fetcher<T>
@@ -3077,9 +3075,7 @@ interface TextDecoderStreamTextDecoderStreamInit {
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ByteLengthQueuingStrategy)
  */
-declare class ByteLengthQueuingStrategy
-	implements QueuingStrategy<ArrayBufferView>
-{
+declare class ByteLengthQueuingStrategy implements QueuingStrategy<ArrayBufferView> {
 	constructor(init: QueuingStrategyInit);
 	/**
 	 * The read-only **`ByteLengthQueuingStrategy.highWaterMark`** property returns the total number of bytes that can be contained in the internal queue before backpressure is applied.
@@ -3816,18 +3812,12 @@ interface MessagePortPostMessageOptions {
 }
 type LoopbackForExport<
 	T extends
-		| (new (
-				...args: any[]
-		  ) => Rpc.EntrypointBranded)
+		| (new (...args: any[]) => Rpc.EntrypointBranded)
 		| ExportedHandler<any, any, any>
 		| undefined = undefined,
-> = T extends new (
-	...args: any[]
-) => Rpc.WorkerEntrypointBranded
+> = T extends new (...args: any[]) => Rpc.WorkerEntrypointBranded
 	? LoopbackServiceStub<InstanceType<T>>
-	: T extends new (
-				...args: any[]
-			) => Rpc.DurableObjectBranded
+	: T extends new (...args: any[]) => Rpc.DurableObjectBranded
 		? LoopbackDurableObjectClass<InstanceType<T>>
 		: T extends ExportedHandler<any, any, any>
 			? LoopbackServiceStub<undefined>
@@ -9422,7 +9412,7 @@ declare abstract class Ai<AiModelList extends AiModelListType = AiModels> {
 			? Response
 			: InputOptions extends {
 						stream: true;
-					}
+				  }
 				? ReadableStream
 				: AiModelList[Name]["postProcessedOutputs"]
 	>;
@@ -10112,8 +10102,7 @@ interface IncomingRequestCfPropertiesBotManagement {
 	 */
 	clientTrustScore: number;
 }
-interface IncomingRequestCfPropertiesBotManagementEnterprise
-	extends IncomingRequestCfPropertiesBotManagement {
+interface IncomingRequestCfPropertiesBotManagementEnterprise extends IncomingRequestCfPropertiesBotManagement {
 	/**
 	 * Results of Cloudflare's Bot Management analysis
 	 */
@@ -11505,9 +11494,7 @@ declare namespace Cloudflare {
 			// If the export is listed in `durableNamespaces`, then it is also a
 			// DurableObjectNamespace.
 			(K extends GlobalProp<"durableNamespaces", never>
-				? MainModule[K] extends new (
-						...args: any[]
-					) => infer DoInstance
+				? MainModule[K] extends new (...args: any[]) => infer DoInstance
 					? DoInstance extends Rpc.DurableObjectBranded
 						? DurableObjectNamespace<DoInstance>
 						: DurableObjectNamespace<undefined>
@@ -11621,7 +11608,8 @@ declare namespace CloudflareWorkersModule {
 	export abstract class WorkflowEntrypoint<
 		Env = unknown,
 		T extends Rpc.Serializable<T> | unknown = unknown,
-	> implements Rpc.WorkflowEntrypointBranded
+	>
+		implements Rpc.WorkflowEntrypointBranded
 	{
 		[Rpc.__WORKFLOW_ENTRYPOINT_BRAND]: never;
 		protected ctx: ExecutionContext;

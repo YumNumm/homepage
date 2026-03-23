@@ -1,12 +1,16 @@
-import { sveltekit } from "@sveltejs/kit/vite";
+import { cloudflare } from "@cloudflare/vite-plugin";
+import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import topLevelAwait from "vite-plugin-top-level-await";
-import wasm from "vite-plugin-wasm";
 
 export default defineConfig({
-	plugins: [wasm(), topLevelAwait(), sveltekit()],
-	esbuild: {
-		jsx: "automatic",
-		jsxImportSource: "react",
+	publicDir: "static",
+	resolve: {
+		tsconfigPaths: true,
 	},
+	plugins: [
+		cloudflare({ viteEnvironment: { name: "ssr" } }),
+		tanstackStart(),
+		react(),
+	],
 });

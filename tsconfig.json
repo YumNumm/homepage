@@ -1,16 +1,27 @@
 {
-	"extends": "./.svelte-kit/tsconfig.json",
+	"include": ["**/*.ts", "**/*.tsx"],
+	"exclude": ["scripts"],
 	"compilerOptions": {
+		"target": "ES2022",
+		"jsx": "react-jsx",
+		"module": "ESNext",
+		"lib": ["ES2022", "DOM", "DOM.Iterable"],
+		"types": ["vite/client", "@cloudflare/workers-types"],
+
+		"moduleResolution": "bundler",
+		"resolveJsonModule": true,
 		"allowJs": true,
 		"checkJs": true,
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
-		"resolveJsonModule": true,
 		"skipLibCheck": true,
-		"sourceMap": true,
 		"strict": true,
-		"moduleResolution": "bundler",
-		"jsx": "react-jsx",
-		"jsxImportSource": "react"
+		"sourceMap": true,
+		"noEmit": true,
+
+		"baseUrl": ".",
+		"paths": {
+			"$lib/*": ["./src/lib/*"]
+		}
 	}
 }
