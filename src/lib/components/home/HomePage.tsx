@@ -109,16 +109,16 @@ export function HomePage() {
 				<hr />
 
 				<h2>Experience</h2>
-				<h3>2023.4 ~ 2025.11: YUMEMI Inc.</h3>
+				<h3>2023.4 ~ 2025.11: 株式会社ゆめみ</h3>
 				<ul>
 					<li>
 						Flutterエンジニアとして、2023年4月に新卒入社。
 						Flutterマイスターエンジニアとして従事。
 					</li>
 				</ul>
-				<h3>2025.12- Accenture Japan Ltd</h3>
+				<h3>2025.12~ アクセンチュア株式会社</h3>
 				<ul>
-					<li>2025.12 ~: Product Enginner Accosiate Manager</li>
+					<li>Accenture Song D&DP Product Engineer Associate Manager</li>
 				</ul>
 
 				<hr />
